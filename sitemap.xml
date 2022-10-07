@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/my-first-post/</loc>
+    <loc>https://nftuoa.github.io/blog-website/posts/my-first-post/</loc>
     <lastmod>2022-10-07T22:12:49+08:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://nftuoa.github.io/blog-website/</loc>
     <lastmod>2022-10-07T22:12:49+08:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>https://nftuoa.github.io/blog-website/posts/</loc>
     <lastmod>2022-10-07T22:12:49+08:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://nftuoa.github.io/blog-website/categories/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://nftuoa.github.io/blog-website/tags/</loc>
   </url>
 </urlset>
