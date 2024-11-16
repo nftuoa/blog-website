@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nftuoa&#39;s Blog</title>
-    <link>https://blog.nftuoa.space/</link>
-    <description>Recent content on nftuoa&#39;s Blog</description>
+    <title>Posts on nftuoa&#39;s Blog</title>
+    <link>https://blog.nftuoa.space/posts/</link>
+    <description>Recent content in Posts on nftuoa&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>© 2024 Oscar Tuo</copyright>
-    <lastBuildDate>Sat, 16 Nov 2024 10:29:22 +0800</lastBuildDate><atom:link href="https://blog.nftuoa.space/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Nov 2024 10:29:22 +0800</lastBuildDate><atom:link href="https://blog.nftuoa.space/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点</title>
       <link>https://blog.nftuoa.space/posts/glory1/</link>
