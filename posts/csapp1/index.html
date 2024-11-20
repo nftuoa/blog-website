@@ -69,7 +69,7 @@
   <meta property="og:title" content="《CS:APP》学习笔记(1)计算机系统巡游">
   <meta property="og:description" content="写在前面 # 作为一名身在EE心在CS的不合格EE新生,CMU的神课Computer Systems:A Programmer’s Perspective一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。
 文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。
-信息=二进制位&#43;语境 # #include &lt;stdio.h&gt; int main(void){ printf(&#34;Hello, World!&#34;); } 这是一个最简单的&#34;Hello, World&#34;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&#34;字节&#34;,每个字节都代表其中的一个字符。 其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令etc……。
+信息=二进制位&#43;语境 # #include &lt;stdio.h&gt; int main(void){ printf(&#34;Hello, World!&#34;); } 这是一个最简单的&#34;Hello, World&#34;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&#34;字节&#34;,每个字节都代表其中的一个字符。 其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。
 程序被其他程序翻译为各种形式 # C语言是一种高级语言,这也就是说计算机并不能直接执行,而需要其他程序将其翻译为计算机能够执行的机器语言。机器语言以二进制文件储存在磁盘中,以&#34;目标程序&#34;的形式储存。 这个过程叫做编译,由被称为编译系统的一系列程序构成。编译系统主要包括四部分:预处理器、编译器、汇编器和链接器;分别对应编译过程的四步。下面以前面的&#34;Hello, World&#34;为例分别介绍这四步。
 预处理阶段
 预处理器检测C程序中#开头的部分并生成处理过的新C程序文件,例如在这一程序的编译中,预处理器cpp会检测到#include&lt;stdio.h&gt; 并将stdio.h直接插入到原程序文件中,这一步的处理结果一般会带有.i后缀。
@@ -88,7 +88,7 @@
   <meta name="twitter:title" content="《CS:APP》学习笔记(1)计算机系统巡游">
   <meta name="twitter:description" content="写在前面 # 作为一名身在EE心在CS的不合格EE新生,CMU的神课Computer Systems:A Programmer’s Perspective一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。
 文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。
-信息=二进制位&#43;语境 # #include &lt;stdio.h&gt; int main(void){ printf(&#34;Hello, World!&#34;); } 这是一个最简单的&#34;Hello, World&#34;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&#34;字节&#34;,每个字节都代表其中的一个字符。 其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令etc……。
+信息=二进制位&#43;语境 # #include &lt;stdio.h&gt; int main(void){ printf(&#34;Hello, World!&#34;); } 这是一个最简单的&#34;Hello, World&#34;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&#34;字节&#34;,每个字节都代表其中的一个字符。 其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。
 程序被其他程序翻译为各种形式 # C语言是一种高级语言,这也就是说计算机并不能直接执行,而需要其他程序将其翻译为计算机能够执行的机器语言。机器语言以二进制文件储存在磁盘中,以&#34;目标程序&#34;的形式储存。 这个过程叫做编译,由被称为编译系统的一系列程序构成。编译系统主要包括四部分:预处理器、编译器、汇编器和链接器;分别对应编译过程的四步。下面以前面的&#34;Hello, World&#34;为例分别介绍这四步。
 预处理阶段
 预处理器检测C程序中#开头的部分并生成处理过的新C程序文件,例如在这一程序的编译中,预处理器cpp会检测到#include&lt;stdio.h&gt; 并将stdio.h直接插入到原程序文件中,这一步的处理结果一般会带有.i后缀。
@@ -108,7 +108,7 @@
     "name": "《CS:APP》学习笔记(1)计算机系统巡游",
     "headline": "《CS:APP》学习笔记(1)计算机系统巡游",
     
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e写在前面 \n    \u003cdiv id=\u0022%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003e作为一名身在EE心在CS的不合格EE新生,CMU的神课\u003cem\u003eComputer Systems:A Programmer\u0026rsquo;s Perspective\u003c\/em\u003e一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。\u003c\/p\u003e\n\u003cp\u003e文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e信息=二进制位\u002b语境 \n    \u003cdiv id=\u0022%E4%BF%A1%E6%81%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%AF%AD%E5%A2%83\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E4%BF%A1%E6%81%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%AF%AD%E5%A2%83\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-C\u0022 data-lang=\u0022C\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e#include\u003c\/span\u003e \u003cspan style=\u0022color:#75715e\u0022\u003e\u0026lt;stdio.h\u0026gt;\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003eint\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003emain\u003c\/span\u003e(\u003cspan style=\u0022color:#66d9ef\u0022\u003evoid\u003c\/span\u003e){\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\t\u003cspan style=\u0022color:#a6e22e\u0022\u003eprintf\u003c\/span\u003e(\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;Hello, World!\u0026#34;\u003c\/span\u003e);\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e}\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003e这是一个最简单的\u0026quot;Hello, World\u0026quot;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个\u0026quot;字节\u0026quot;,每个字节都代表其中的一个字符。\n其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令etc……。\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e程序被其他程序翻译为各种形式 \n    \u003cdiv id=\u0022%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E4%B8%BA%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E4%B8%BA%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003eC语言是一种高级语言,这也就是说计算机并不能直接执行,而需要其他程序将其翻译为计算机能够执行的机器语言。机器语言以二进制文件储存在磁盘中,以\u0026quot;目标程序\u0026quot;的形式储存。\n这个过程叫做编译,由被称为编译系统的一系列程序构成。编译系统主要包括四部分:预处理器、编译器、汇编器和链接器;分别对应编译过程的四步。下面以前面的\u0026quot;Hello, World\u0026quot;为例分别介绍这四步。\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e预处理阶段\u003c\/p\u003e\n\u003cp\u003e预处理器检测C程序中#开头的部分并生成处理过的新C程序文件,例如在这一程序的编译中,预处理器cpp会检测到\u003ccode\u003e#include\u0026lt;stdio.h\u0026gt;\u003c\/code\u003e 并将stdio.h直接插入到原程序文件中,这一步的处理结果一般会带有.i后缀。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e编译阶段\u003c\/p\u003e\n\u003cp\u003e编译器会将预处理得到的.i文件翻译为一个汇编语言程序,汇编语言是一种低级语言(但是人类依然还能理解一部分),使用不同的编译器编译不同的语言程序都会先得到汇编程序。汇编程序一般带有.s后缀。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e汇编阶段\u003c\/p\u003e\n\u003cp\u003e汇编器会将汇编程序.s文件翻译为二进制形式的机器指令,并将其封装在一个\u0026quot;可重定位目标文件\u0026quot;中,这类文件一般带有.o后缀,人类已经无法直接理解它了。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e链接阶段\u003c\/p\u003e\n\u003cp\u003e我们的Hello, World程序中调用了printf函数,但在生成的hello.o文件中并不包括printf的实现。链接器会将存储在系统中的printf.o与汇编得到的hello.o链接在一起,生成最终可供执行的\u0026quot;可执行目标程序\u0026quot;。\u003c\/p\u003e",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e写在前面 \n    \u003cdiv id=\u0022%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003e作为一名身在EE心在CS的不合格EE新生,CMU的神课\u003cem\u003eComputer Systems:A Programmer\u0026rsquo;s Perspective\u003c\/em\u003e一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。\u003c\/p\u003e\n\u003cp\u003e文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e信息=二进制位\u002b语境 \n    \u003cdiv id=\u0022%E4%BF%A1%E6%81%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%AF%AD%E5%A2%83\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E4%BF%A1%E6%81%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E8%AF%AD%E5%A2%83\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-C\u0022 data-lang=\u0022C\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e#include\u003c\/span\u003e \u003cspan style=\u0022color:#75715e\u0022\u003e\u0026lt;stdio.h\u0026gt;\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003eint\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003emain\u003c\/span\u003e(\u003cspan style=\u0022color:#66d9ef\u0022\u003evoid\u003c\/span\u003e){\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\t\u003cspan style=\u0022color:#a6e22e\u0022\u003eprintf\u003c\/span\u003e(\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;Hello, World!\u0026#34;\u003c\/span\u003e);\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e}\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003e这是一个最简单的\u0026quot;Hello, World\u0026quot;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个\u0026quot;字节\u0026quot;,每个字节都代表其中的一个字符。\n其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e程序被其他程序翻译为各种形式 \n    \u003cdiv id=\u0022%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E4%B8%BA%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E4%B8%BA%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003eC语言是一种高级语言,这也就是说计算机并不能直接执行,而需要其他程序将其翻译为计算机能够执行的机器语言。机器语言以二进制文件储存在磁盘中,以\u0026quot;目标程序\u0026quot;的形式储存。\n这个过程叫做编译,由被称为编译系统的一系列程序构成。编译系统主要包括四部分:预处理器、编译器、汇编器和链接器;分别对应编译过程的四步。下面以前面的\u0026quot;Hello, World\u0026quot;为例分别介绍这四步。\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e预处理阶段\u003c\/p\u003e\n\u003cp\u003e预处理器检测C程序中#开头的部分并生成处理过的新C程序文件,例如在这一程序的编译中,预处理器cpp会检测到\u003ccode\u003e#include\u0026lt;stdio.h\u0026gt;\u003c\/code\u003e 并将stdio.h直接插入到原程序文件中,这一步的处理结果一般会带有.i后缀。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e编译阶段\u003c\/p\u003e\n\u003cp\u003e编译器会将预处理得到的.i文件翻译为一个汇编语言程序,汇编语言是一种低级语言(但是人类依然还能理解一部分),使用不同的编译器编译不同的语言程序都会先得到汇编程序。汇编程序一般带有.s后缀。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e汇编阶段\u003c\/p\u003e\n\u003cp\u003e汇编器会将汇编程序.s文件翻译为二进制形式的机器指令,并将其封装在一个\u0026quot;可重定位目标文件\u0026quot;中,这类文件一般带有.o后缀,人类已经无法直接理解它了。\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e链接阶段\u003c\/p\u003e\n\u003cp\u003e我们的Hello, World程序中调用了printf函数,但在生成的hello.o文件中并不包括printf的实现。链接器会将存储在系统中的printf.o与汇编得到的hello.o链接在一起,生成最终可供执行的\u0026quot;可执行目标程序\u0026quot;。\u003c\/p\u003e",
     "inLanguage": "zh",
     "url" : "https:\/\/blog.nftuoa.space\/posts\/csapp1\/",
     "author" : {
@@ -124,7 +124,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "38"
+    "wordCount": "65"
   }]
   </script>
 
@@ -461,7 +461,7 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>这是一个最简单的&quot;Hello, World&quot;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&quot;字节&quot;,每个字节都代表其中的一个字符。
-其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令etc……。</p>
+其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。</p>
 
 
 <h2 class="relative group">程序被其他程序翻译为各种形式 
@@ -496,17 +496,98 @@
 </ol>
 
 
-<h2 class="relative group">编译原理很难通晓(但你仍然有必要去学) 
-    <div id="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%BE%88%E9%9A%BE%E9%80%9A%E6%99%93%E4%BD%86%E4%BD%A0%E4%BB%8D%E7%84%B6%E6%9C%89%E5%BF%85%E8%A6%81%E5%8E%BB%E5%AD%A6" class="anchor"></div>
+<h2 class="relative group">编译原理值得了解 
+    <div id="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%80%BC%E5%BE%97%E4%BA%86%E8%A7%A3" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%BE%88%E9%9A%BE%E9%80%9A%E6%99%93%E4%BD%86%E4%BD%A0%E4%BB%8D%E7%84%B6%E6%9C%89%E5%BF%85%E8%A6%81%E5%8E%BB%E5%AD%A6" aria-label="">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%80%BC%E5%BE%97%E4%BA%86%E8%A7%A3" aria-label="">#</a>
     </span>        
     
 </h2>
-<p>(还没写完……持续更新中……)</p>
+<p>理解编译原理有利于：</p>
+<ol>
+<li>优化程序性能</li>
+<li>理解链接错误</li>
+<li>避免安全漏洞</li>
+</ol>
+
+
+<h2 class="relative group">处理器读取并处理内存中存储的指令 
+    <div id="%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%8F%96%E5%B9%B6%E5%A4%84%E7%90%86%E5%86%85%E5%AD%98%E4%B8%AD%E5%AD%98%E5%82%A8%E7%9A%84%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%8F%96%E5%B9%B6%E5%A4%84%E7%90%86%E5%86%85%E5%AD%98%E4%B8%AD%E5%AD%98%E5%82%A8%E7%9A%84%E6%8C%87%E4%BB%A4" aria-label="">#</a>
+    </span>        
+    
+</h2>
+<p>我们可以利用Shell来运行我们编写的Hello程序。Shell是一种命令行解释程序,这意味着它接受命令行输入并执行。我们在Shell中输入./hello, Shell会检测到hello是一个可执行文件，并将它加载到内存中后执行。程序执行完成后，Shell会继续请求命令行输入。</p>
+
+
+<h3 class="relative group">计算机系统的硬件组成 
+    <div id="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90" aria-label="">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">总线 
+    <div id="%E6%80%BB%E7%BA%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%80%BB%E7%BA%BF" aria-label="">#</a>
+    </span>        
+    
+</h4>
+<p>总线是沿着整个系统运行的一系列电子线路的集合。总线可以将信息位在元件之间来回传输, 总线一般所传输的信息位数是固定的, 这些字节的组块被称作“语词”, “语词”长度一般为4字节(也就是32位)或8字节(也就是64位)</p>
+
+
+<h4 class="relative group">I/O 设备 
+    <div id="io-%E8%AE%BE%E5%A4%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#io-%E8%AE%BE%E5%A4%87" aria-label="">#</a>
+    </span>        
+    
+</h4>
+<p>I/O设备以输入或输出的方式建立计算机与外界的连接。I/O设备通过控制器或者适配器连接到I/O总线。控制器是主板上的专门芯片，适配器则是一些连接在主板上的设备。</p>
+
+
+<h4 class="relative group">主内存 
+    <div id="%E4%B8%BB%E5%86%85%E5%AD%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E5%86%85%E5%AD%98" aria-label="">#</a>
+    </span>        
+    
+</h4>
+<p>主内存是一种临时储存设备，在处理器执行程序时会将程序与对应的数据暂存进内存。内存一般采用DRAM(Dynamic Random Access Memory,动态随机访问存储)技术。在软件层面内存会被抽象为一系列线性的数组，并从0开始编号，这一编码被称为内存地址。</p>
+
+
+<h4 class="relative group">处理器 
+    <div id="%E5%A4%84%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%84%E7%90%86%E5%99%A8" aria-label="">#</a>
+    </span>        
+    
+</h4>
 <p>​</p>
 
           

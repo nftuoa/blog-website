@@ -63,7 +63,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是一个最简单的&amp;quot;Hello, World&amp;quot;C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个&amp;quot;字节&amp;quot;,每个字节都代表其中的一个字符。
-其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令etc……。&lt;/p&gt;
+其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。&lt;/p&gt;
 
 
 &lt;h2 class=&#34;relative group&#34;&gt;程序被其他程序翻译为各种形式 
