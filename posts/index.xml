@@ -7,7 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>© 2024 Oscar Tuo</copyright>
-    <lastBuildDate>Sat, 16 Nov 2024 10:29:22 +0800</lastBuildDate><atom:link href="https://blog.nftuoa.space/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Dec 2024 20:42:21 +0800</lastBuildDate><atom:link href="https://blog.nftuoa.space/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>翻译 | 《液体黄金:液晶显示技术发展史与行业的创立》</title>
+      <link>https://blog.nftuoa.space/posts/lcd/</link>
+      <pubDate>Mon, 02 Dec 2024 20:42:21 +0800</pubDate>
+      
+      <guid>https://blog.nftuoa.space/posts/lcd/</guid>
+      <description>&lt;p&gt;&lt;code&gt;有时候我自己都佩服自己怎么这么能开新坑&lt;/code&gt;&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;序 
+    &lt;div id=&#34;%E5%BA%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%BA%8F&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;那是2000年的十月底，我走出日本横滨市的高档洲际酒店的大堂，越过一个露天广场到了横滨国际平和会议场，液晶/等离子显示国际展正在那座张牙舞爪的两层建筑里举行。那是我第二次在这个地方参加这场广受欢迎的年度会展，横滨市的这个区域位处东京湾的南岸，看起来重建得很漂亮，而且似乎已经恢复了生机。在流连于展厅中，观赏各类显示器的途中，我在一块对角线长20英寸的全彩液晶显示器前驻足；那块屏幕上正在直播一场纽约洋基队与大都会队之间的棒球世界大赛，而那场比赛的举办地与横滨相距将近一万英里。一群美国人围到了显示器前，我怀疑他们与其说是为了看那块屏幕，倒不如说是为了一瞥那场比赛的情况。在承认那块屏幕的极高素质：对比度高、颜色准确、亮度高的同时，我也不禁在想，自我成年以来，科技究竟在以多快的速度在改变我的生活。我进而推断到：纯平显示器可能就是20世纪中最重要的科技成果之一。&lt;/p&gt;
+&lt;p&gt;然后，我的思绪又集中到了自我首次在试管中放入了那种以液态与固态的混合状态存在的浑浊晶体以来，液晶显示行业在这40年光阴中取得了多么巨大的进步。从某种意义上来说，考虑到这种物质的价值在年岁的变迁中简直是指数级地上升，它已经成为了“液体黄金”。我越来越感觉到，自己是时候该讲讲这个故事了：这种十分有趣的科学技术为什么、又是如何发展成为一种主要的产业的。考虑到我自第一天起就是这个产业的一员，我认为我义不容辞。以前也有一些很不错的类似的书，比如罗伯特·约翰斯通的《我们在燃烧》，但那本书的重点在于讲述日本科学家们是怎么把他们的发明商业化；我自己也在这个主题上写过一本书，叫做《显示技术手册》，但那本书专注于研究技术的细节。我写现在这本书则意在从历史的角度上讲述液晶显示技术的发展和它所带来的一个行业。&lt;/p&gt;
+&lt;p&gt;液晶显示技术发展的主要动力在于对于制造出一种扁平而轻薄的显示设备，以便替代在60年代占统治地位的显像管显示设备。RCA的时任CEO大卫·沙诺夫早在1956年就预言到，若想要想象中的“电视墙”成真，这种纯平而轻薄的显示设备便是不可或缺的。然而，通往纯平电视的道路崎岖曲折，一直到80年代才出现一些小型的纯平电视。又过了将近二十年，尺寸更大的液晶电视才得以量产并投入市场。到2004年，在全世界的批发商那里都能买到液晶电视了。&lt;/p&gt;
+&lt;p&gt;液晶显示技术的发展与“个人电脑革命”(译者注:想了解个人电脑革命的话可以去阅读一下《硅谷之火》)几乎同时进行，到了1985年左右，液晶显示器开始出现在最早的笔记本电脑上:如果没有平板显示器，这种产品根本不可能出现，但如今它们已经走进了千家万户。另外，液晶技术也是我们如今在家具设备、汽车、飞机已经众多电子设备中已经习以为常的很多民用和商用产品的幕后功臣。&lt;/p&gt;
+&lt;p&gt;液晶显示技术从实验室中的简单样品到如今的一个四千万美元以上规模的产业的发展史诗，绝不只能讲那些操作层面的结构、装置的技术细节。这其中还包括着那些让这种技术成为现实的科学家与工程师的奇思妙想、高瞻远瞩、卧薪尝胆以及宏图大志。因此，这本书将既对于一个重要的高科技产业的进步从个人角度进行深度剖析，也会从一个亲眼目睹它在超过三分之一世纪的时间里从开端到普及的发展的人的视角下认识那些创造它的人。&lt;/p&gt;
+&lt;p&gt;约瑟夫·A·卡斯特拉诺
+圣何塞市，加利福尼亚州
+2004年3月&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点</title>
       <link>https://blog.nftuoa.space/posts/glory1/</link>
@@ -25,6 +56,51 @@
 &lt;p&gt;没有什么比看一眼当时的军队建制更能向我们展现四十年前美国的地方主义有多么盛行了，只消一眼就够。彼时美国拥有世界第十六大军队，位居捷克斯洛伐克、土耳其、西班牙、罗马尼亚和波兰之后；身披全套军装、每月拿17.85美元工资的军人统共有132069人。从纸面数据来看，美国似乎有与南斯拉夫(军队规模138934人)硬碰硬的实力，然而现实中他们恐怕只会一败涂地；这是因为这些麦克阿瑟手下的军人中，大部分人都要么被安排到了文职工作、要么在美墨边境巡逻或是去保护属于美国的海域了；真正在美国本土的士兵不过三万余人——比1776年乔治国王派往美国平叛的军队规模还要更小。&lt;/p&gt;
 &lt;p&gt;不仅如此，美国军队的素质也是差得可怕。彼时的军费不过是今日(译注：本书写于20世纪70年代)的四分之一，看起来也确实只值这些钱。《财富》杂志说它是世界上“装备最差”的军队，没有任何人对此观点提出异议。假如危机降临，麦克阿瑟可以调动1000辆均已过时坦克，1509架急速不足400公里每小时的飞机，仅有的一个机械化团(那年春天刚刚在诺克斯堡组建，由一些骑着马、穿着防芥子气的靴子的骑兵领队)。一位作家说，美国军队就是“以一副填不饱肚子、穿着不合身军装、歪歪扭扭端着枪的模样在广阔的大地上游荡”。&lt;/p&gt;
 &lt;p&gt;麦克阿瑟当时是美国全国唯一的四星上将——其他人中甚至连一个三星的都没有。作为军队的首脑他年薪10400美元，在梅尔堡有一处住所，并且能独享军队里仅有的一辆豪华专车。作为他的副手，艾森豪威尔上校的地位其次，年薪3000美元。由于他同时还担任军队在议会的说客，他不得不频繁地往返国会山；但是他的上司从来没有借给他专车，也没有人给过他车马费；在那时的华盛顿，还未有人开过成立备用金基金这种东西的先例。因此，据他本人后来回忆，艾森豪威尔那时只能走到国会大厅的尽头去填一张表，这样他就能得到两张有轨电车的车票，然后他就去宾夕法尼亚大道马路边上等前往普莱森特山的有轨电车。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.nftuoa.space/posts/circuits1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nftuoa.space/posts/circuits1/</guid>
+      <description>&lt;p&gt;1+++
+date = &amp;lsquo;2024-11-21T16:45:42+08:00&amp;rsquo;
+draft = true
+title = &amp;lsquo;&amp;lsquo;UCB EECS16A学习笔记-Lec1&amp;quot;
++++&lt;/p&gt;
+&lt;p&gt;我该管管自己这个酷爱开新坑的毛病了（&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;特征值和向量 
+    &lt;div id=&#34;%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E5%90%91%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E5%90%91%E9%87%8F&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;用于触摸屏检测触摸
+用于控制机器人运动
+用于互联网搜索排名
+用于使算法优化更快收敛&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;总结 
+    &lt;div id=&#34;%E6%80%BB%E7%BB%93&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%80%BB%E7%BB%93&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;感觉这节课对不在Berkerly上学的人来说有用的只有一句话:
+Not Windows.&lt;/p&gt;</description>
       
     </item>
     
