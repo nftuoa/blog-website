@@ -75,9 +75,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-bd8cb2610f6c2810c4bc87234a365cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/asciinema-0.1.0/asciinema-player.min.js"></script>
-<script src="../../site_libs/quarto-contrib/asciinema-0.1.0/asciinema-player.autoload.js"></script>
-<link href="../../site_libs/quarto-contrib/asciinema-0.1.0/asciinema-player.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -552,84 +549,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>    print_rational<span class="op">(</span>div_rational<span class="op">(</span>a<span class="op">,</span> b<span class="op">));</span></span>
 <span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="习题7-3" class="level3">
-<h3 class="anchored" data-anchor-id="习题7-3">习题7-3</h3>
-<section id="section-22" class="level4">
-<h4 class="anchored" data-anchor-id="section-22">1.</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> coordinate_type <span class="op">{</span> RECTANGULAR<span class="op">,</span> POLAR <span class="op">};</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> complex_struct <span class="op">{</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">enum</span> coordinate_type t<span class="op">;</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> a<span class="op">,</span> b<span class="op">;</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> complex_struct make_from_real_img<span class="op">(</span><span class="dt">double</span> x<span class="op">,</span> <span class="dt">double</span> y<span class="op">)</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> complex_struct z<span class="op">;</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>t <span class="op">=</span> RECTANGULAR<span class="op">;</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>a <span class="op">=</span> x<span class="op">;</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>b <span class="op">=</span> y<span class="op">;</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> z<span class="op">;</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> complex_struct make_from_mag_ang<span class="op">(</span><span class="dt">double</span> r<span class="op">,</span> <span class="dt">double</span> A<span class="op">)</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> complex_struct z<span class="op">;</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>t <span class="op">=</span> POLAR<span class="op">;</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>a <span class="op">=</span> r<span class="op">;</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    z<span class="op">.</span>b <span class="op">=</span> A<span class="op">;</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> z<span class="op">;</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> real_part<span class="op">(</span><span class="kw">struct</span> complex_struct in<span class="op">)</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>in<span class="op">.</span>t <span class="op">==</span> RECTANGULAR<span class="op">)</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> in<span class="op">.</span>a<span class="op">;</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>in<span class="op">.</span>a<span class="op">*</span>cos<span class="op">(</span>in<span class="op">.</span>b<span class="op">));</span></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> img_part<span class="op">(</span><span class="kw">struct</span> complex_struct in<span class="op">)</span></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>in<span class="op">.</span>t <span class="op">==</span> RECTANGULAR<span class="op">)</span></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> in<span class="op">.</span>b<span class="op">;</span></span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>in<span class="op">.</span>a<span class="op">*</span>sin<span class="op">(</span>in<span class="op">.</span>b<span class="op">));</span></span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> magnitude<span class="op">(</span><span class="kw">struct</span> complex_struct in<span class="op">)</span></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>in<span class="op">.</span>t <span class="op">==</span> POLAR<span class="op">)</span></span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> in<span class="op">.</span>a<span class="op">;</span></span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sqrt<span class="op">(</span>in<span class="op">.</span>a<span class="op">*</span>in<span class="op">.</span>a<span class="op">+</span>in<span class="op">.</span>b<span class="op">*</span>in<span class="op">.</span>b<span class="op">);</span></span>
-<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> angle<span class="op">(</span><span class="kw">struct</span> complex_struct in<span class="op">)</span></span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>in<span class="op">.</span>t <span class="op">==</span> POLAR<span class="op">)</span></span>
-<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> in<span class="op">.</span>b<span class="op">;</span></span>
-<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
-<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> atan<span class="op">(</span>in<span class="op">.</span>b<span class="op">/</span>in<span class="op">.</span>a<span class="op">);</span></span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> complex_struct a <span class="op">=</span> make_from_real_img<span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
-<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> complex_struct b <span class="op">=</span> make_from_mag_ang<span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">"</span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf</span><span class="st"> </span><span class="sc">%lf\n</span><span class="st">"</span><span class="op">,</span>real_part<span class="op">(</span>a<span class="op">),</span>real_part<span class="op">(</span>b<span class="op">),</span>img_part<span class="op">(</span>a<span class="op">),</span>img_part<span class="op">(</span>b<span class="op">),</span>magnitude<span class="op">(</span>a<span class="op">),</span>magnitude<span class="op">(</span>b<span class="op">),</span>angle<span class="op">(</span>a<span class="op">),</span>angle<span class="op">(</span>b<span class="op">));</span></span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>使用gcc编译时请加入-lm指令，main函数主要是用来测试</em></p>
-</section>
-<section id="section-23" class="level4">
-<h4 class="anchored" data-anchor-id="section-23">2.</h4>
-<p></p><div class="player-container" cast-src="enumtest.cast" data-options="{&quot;autoPlay&quot;: &quot;true&quot;, &quot;cols&quot;: &quot;80&quot;, &quot;rows&quot;: &quot;15&quot;, &quot;poster&quot;: &quot;npt:1:23&quot;, &quot;theme&quot;: &quot;dracula&quot;, &quot;speed&quot;: &quot;4&quot;}"></div><p></p>
-<p>原因:enum里的RECTANGULAR被后边的初始化语句在main里给覆盖了，而POLAR则还是定义的2</p>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

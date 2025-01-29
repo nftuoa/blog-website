@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Oscar Tuo">
+<meta name="dcterms.date" content="2025-01-27">
 
-<title>Oscar Tuo’s Blog – nftuoa-blog</title>
+<title>《CS:APP》学习笔记(1)计算机系统巡游 – nftuoa-blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bd8cb2610f6c2810c4bc87234a365cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bd8cb2610f6c2810c4bc87234a365cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">nftuoa-blog</span>
     </a>
   </div>
@@ -149,7 +125,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,215 +148,104 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Oscar Tuo’s Blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">《CS:APP》学习笔记(1)计算机系统巡游</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">system</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Oscar Tuo </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 27, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y2lyY3VpdA==">circuit <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVt">system <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNsYXRpb24=">translation <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-
-<div class="quarto-post image-right" data-index="0" data-categories="Y2lyY3VpdA==" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1737994261997" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="12">
-
-<div class="thumbnail">
-<a href="./posts/circuits/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/circuits/index.html" class="no-external">《Fundamentals of Electric Circuits》(Alexander)习题解答</a></h3>
-<div class="listing-subtitle"><a href="./posts/circuits/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2lyY3VpdA=='); return false;">circuit</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/circuits/index.html" class="no-external">我该管管自己这个酷爱开新坑的毛病了（</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/circuits/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="1" data-categories="dHJhbnNsYXRpb24=" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1737994451635" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-
-<div class="thumbnail">
-<a href="./posts/glory1/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/glory1/index.html" class="no-external">《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点</a></h3>
-<div class="listing-subtitle"><a href="./posts/glory1/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNsYXRpb24='); return false;">translation</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/glory1/index.html" class="no-external">在1932年那个绝望的夏天，华盛顿特区宛若一座被团团包围的欧洲小国首都。这座城市自从五月，两万五千名一贫如洗的一战老兵携妻带子在其中的公园里、垃圾堆里、废旧仓库以及空商店里安营扎寨后便如此了。在一位荣誉奖章获得者的带领下，在华盛顿万千居民沉默的注视下，老兵们四处行军、大唱军歌；他们身披褪色的棉质美国国旗，在宾州大道上游行。然而，在大部分时间他们也…</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/glory1/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="2" data-categories="dHJhbnNsYXRpb24=" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1737994436080" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-
-<div class="thumbnail">
-<a href="./posts/glory2/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/glory2/index.html" class="no-external">新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”</a></h3>
-<div class="listing-subtitle"><a href="./posts/glory2/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNsYXRpb24='); return false;">translation</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/glory2/index.html" class="no-external">总统大选后不久，一群共产主义者突如其来地到达了东六十五街的49号(译者注:罗斯福那时的办公室)。当选总统款待了他们，但是当其中一人说“我们想要您告诉胡佛总统联邦政府必须……”时，罗斯福严厉地打断了他。“我不能让总统干任何事，”他说道，“在联邦政府的角度下，我现在不过只是一介草民。”他想表达的也的确是这个意思。在获得可以行使的权力前，他并不会插手这…<br><br><br><br><br><br><br><br><br></a></div>
-
-</div>
-<div class="metadata"><a href="./posts/glory2/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="3" data-categories="c3lzdGVt" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1737993420088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
-
-<div class="thumbnail">
-<a href="./posts/csapp/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/csapp/index.html" class="no-external">《CS:APP》学习笔记(1)计算机系统巡游</a></h3>
-<div class="listing-subtitle"><a href="./posts/csapp/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3lzdGVt'); return false;">system</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/csapp/index.html" class="no-external">作为一名身在EE心在CS的不合格EE新生,CMU的神课<em>Computer Systems:A Programmer’s Perspective</em>一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/csapp/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="4" data-categories="cHJvZ3JhbW1pbmc=" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1738158681703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="652">
-
-<div class="thumbnail">
-<a href="./posts/linuxc/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/linuxc/index.html" class="no-external">《Linux C编程一站式学习》习题解答</a></h3>
-<div class="listing-subtitle"><a href="./posts/linuxc/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/linuxc/index.html" class="no-external"><strong>学这本书主要是为了满足ysyx的要求,故会先以一个较快的速度更新完ysyx要求的部分(第1-9章, 第11-16章, 第21章, 第23-25章, 以及第26章第1节),未经特殊标记的程序默认采用C17标准编译通过。</strong></a></div>
-
-</div>
-<div class="metadata"><a href="./posts/linuxc/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="写在前面" class="level2">
+<h2 class="anchored" data-anchor-id="写在前面">写在前面</h2>
+<p>作为一名身在EE心在CS的不合格EE新生,CMU的神课<em>Computer Systems:A Programmer’s Perspective</em>一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。</p>
+<p>文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。</p>
+</section>
+<section id="信息二进制位语境" class="level2">
+<h2 class="anchored" data-anchor-id="信息二进制位语境">信息=二进制位+语境</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Hello, World!"</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>这是一个最简单的”Hello, World”C程序,计算机在存储它时通过ASCII标准将其中的字符与换行转化为ASCII码,并以ASCII码的形式储存。存储在计算机中的这段程序其实只是一串有顺序的二进制位,这些二进制位的每八位组成一个”字节”,每个字节都代表其中的一个字符。 其他数据也采用了相同的表达方式：在不同的语境中,一串相同的字节可能是整数、浮点、字符串、机器指令、etc。</p>
+</section>
+<section id="程序被其他程序翻译为各种形式" class="level2">
+<h2 class="anchored" data-anchor-id="程序被其他程序翻译为各种形式">程序被其他程序翻译为各种形式</h2>
+<p>C语言是一种高级语言,这也就是说计算机并不能直接执行,而需要其他程序将其翻译为计算机能够执行的机器语言。机器语言以二进制文件储存在磁盘中,以”目标程序”的形式储存。 这个过程叫做编译,由被称为编译系统的一系列程序构成。编译系统主要包括四部分:预处理器、编译器、汇编器和链接器;分别对应编译过程的四步。下面以前面的”Hello, World”为例分别介绍这四步。</p>
+<ol type="1">
+<li><p>预处理阶段</p>
+<p>预处理器检测C程序中#开头的部分并生成处理过的新C程序文件,例如在这一程序的编译中,预处理器cpp会检测到<code>#include&lt;stdio.h&gt;</code> 并将stdio.h直接插入到原程序文件中,这一步的处理结果一般会带有.i后缀。</p></li>
+<li><p>编译阶段</p>
+<p>编译器会将预处理得到的.i文件翻译为一个汇编语言程序,汇编语言是一种低级语言(但是人类依然还能理解一部分),使用不同的编译器编译不同的语言程序都会先得到汇编程序。汇编程序一般带有.s后缀。</p></li>
+<li><p>汇编阶段</p>
+<p>汇编器会将汇编程序.s文件翻译为二进制形式的机器指令,并将其封装在一个”可重定位目标文件”中,这类文件一般带有.o后缀,人类已经无法直接理解它了。</p></li>
+<li><p>链接阶段</p>
+<p>我们的Hello, World程序中调用了printf函数,但在生成的hello.o文件中并不包括printf的实现。链接器会将存储在系统中的printf.o与汇编得到的hello.o链接在一起,生成最终可供执行的”可执行目标程序”。</p></li>
+</ol>
+</section>
+<section id="编译原理值得了解" class="level2">
+<h2 class="anchored" data-anchor-id="编译原理值得了解">编译原理值得了解</h2>
+<p>理解编译原理有利于： 1. 优化程序性能 2. 理解链接错误 3. 避免安全漏洞</p>
+</section>
+<section id="处理器读取并处理内存中存储的指令" class="level2">
+<h2 class="anchored" data-anchor-id="处理器读取并处理内存中存储的指令">处理器读取并处理内存中存储的指令</h2>
+<p>我们可以利用Shell来运行我们编写的Hello程序。Shell是一种命令行解释程序,这意味着它接受命令行输入并执行。我们在Shell中输入./hello, Shell会检测到hello是一个可执行文件，并将它加载到内存中后执行。程序执行完成后，Shell会继续请求命令行输入。</p>
+<section id="计算机系统的硬件组成" class="level3">
+<h3 class="anchored" data-anchor-id="计算机系统的硬件组成">计算机系统的硬件组成</h3>
+<section id="总线" class="level4">
+<h4 class="anchored" data-anchor-id="总线">总线</h4>
+<p>总线是沿着整个系统运行的一系列电子线路的集合。总线可以将信息位在元件之间来回传输, 总线一般所传输的信息位数是固定的, 这些字节的组块被称作“语词”, “语词”长度一般为4字节(也就是32位)或8字节(也就是64位) #### I/O 设备 I/O设备以输入或输出的方式建立计算机与外界的连接。I/O设备通过控制器或者适配器连接到I/O总线。控制器是主板上的专门芯片，适配器则是一些连接在主板上的设备。</p>
+</section>
+<section id="主内存" class="level4">
+<h4 class="anchored" data-anchor-id="主内存">主内存</h4>
+<p>主内存是一种临时储存设备，在处理器执行程序时会将程序与对应的数据暂存进内存。内存一般采用DRAM(Dynamic Random Access Memory,动态随机访问存储)技术。在软件层面内存会被抽象为一系列线性的数组，并从0开始编号，这一编码被称为内存地址。</p>
+</section>
+<section id="处理器" class="level4">
+<h4 class="anchored" data-anchor-id="处理器">处理器</h4>
+<p>这里的处理器是一般说的中央处理器(CPU)，是处理并执行内存中存储的指令的元件。在其中有一个单个语词长度的寄存器,被称作PC(Program Counter,程序计数器)。PC在运行中指向内存中的某条机器语言指令(也就是现在要运行的)。 只要计算机接电，处理器就会不断执行程序计数器所指的那条指令，程序会主动更新程序计时器以便执行下一条命令。处理器根据其指令集(ISA)的不同，具有其独有且唯一的指令执行模型，其中包括执行指令的顺序与执行指令的一系列步骤。 CPU能执行的指令实际上只有简单的几条，它们都围绕着内存、寄存器与ALU（算术/逻辑单元）展开，例如Load(从内存向寄存器加载指令)，Store(从寄存器向内存写入数据)，Operate(利用ALU执行)及Jump(利用PC加载下一条指令)</p>
+</section>
+</section>
+<section id="hello程序的执行过程" class="level3">
+<h3 class="anchored" data-anchor-id="hello程序的执行过程">Hello程序的执行过程</h3>
+<p>​</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
