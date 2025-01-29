@@ -455,6 +455,34 @@ int main(void)
 
 #### 2.
 
-{{< asciinema "enumtest.cast" cols="80" rows="15" autoPlay="true" speed="4" theme="dracula" poster="npt:1:23" >}}
+{{< asciinema "enumtest.cast" cols="80" rows="7" autoPlay="true" speed="4" theme="nord" poster="npt:1:23" >}}
 
 原因:enum里的RECTANGULAR被后边的初始化语句在main里给覆盖了，而POLAR则还是定义的2
+
+## 第八章
+
+### 习题8-1
+
+```c
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+  int a[5]={5,4,3,2,1};
+  int b[5];
+  memcpy(b,a,sizeof(a));
+}
+```
+
+### 习题8-2
+
+```c
+rand()%11+10
+```
+
+## 第十章
+
+暂缺...
+
+## 第十一章
+
