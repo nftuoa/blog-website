@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "c898c04aebcf2e27",
@@ -165,6 +164,9 @@
   },
   "active": "ba76eff6b073b0c5",
   "lastOpenFiles": [
+    "cs61a/cs61a.html",
+    "cs61a/cs61a_files/mediabag",
+    "cs61a/cs61a_files",
     "linuxc/index.html",
     "linuxc/index_files/mediabag",
     "linuxc/index_files",
@@ -173,8 +175,11 @@
     "csapp/index_files",
     "glory2/index.html",
     "glory2/index_files/mediabag",
-    "glory2/index_files",
-    "glory1/index.html",
-    "glory1/index_files/mediabag"
+    "cs61a/cs61a.md",
+    "circuits/index.md",
+    "csapp/index.md",
+    "linuxc/index.md",
+    "glory1/index.md",
+    "glory2/index.md"
   ]
 }

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Oscar Tuo">
-<meta name="dcterms.date" content="2025-01-27">
+<meta name="dcterms.date" content="2025-01-29">
 
 <title>《Linux C编程一站式学习》习题解答 – nftuoa-blog</title>
 <style>
@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 27, 2025</p>
+        <p class="date">January 29, 2025</p>
       </div>
     </div>
     
@@ -628,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="section-23" class="level4">
 <h4 class="anchored" data-anchor-id="section-23">2.</h4>
-<p></p><div class="player-container" cast-src="enumtest.cast" data-options="{&quot;cols&quot;: &quot;80&quot;, &quot;rows&quot;: &quot;7&quot;, &quot;speed&quot;: &quot;4&quot;, &quot;poster&quot;: &quot;npt:1:23&quot;, &quot;autoPlay&quot;: &quot;true&quot;, &quot;theme&quot;: &quot;nord&quot;}"></div><p></p>
+<p></p><div class="player-container" cast-src="enumtest.cast" data-options="{&quot;rows&quot;: &quot;7&quot;, &quot;poster&quot;: &quot;npt:1:23&quot;, &quot;theme&quot;: &quot;nord&quot;, &quot;autoPlay&quot;: &quot;true&quot;, &quot;cols&quot;: &quot;80&quot;, &quot;speed&quot;: &quot;4&quot;}"></div><p></p>
 <p>原因:enum里的RECTANGULAR被后边的初始化语句在main里给覆盖了，而POLAR则还是定义的2</p>
 </section>
 </section>
@@ -657,8 +657,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="第十一章" class="level2">
 <h2 class="anchored" data-anchor-id="第十一章">第十一章</h2>
+<section id="习题11-4" class="level3">
+<h3 class="anchored" data-anchor-id="习题11-4">习题11-4</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">[</span><span class="dv">10</span><span class="op">]={</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">0</span><span class="op">};</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> partition<span class="op">(</span><span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">)</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*从a[start..end]中选取一个pivot元素（比如选a[start]为pivot）;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">    在一个循环中移动a[start..end]的数据，将a[start..end]分成两半，</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">    使a[start..mid-1]比pivot元素小，a[mid+1..end]比pivot元素大，而a[mid]就是pivot元素;*/</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> mid <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>start<span class="op">+</span>end<span class="op">)/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> start<span class="op">;</span>i<span class="op">&lt;</span>mid<span class="op">;</span>i<span class="op">++)</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>a<span class="op">[</span>i<span class="op">]&gt;</span>a<span class="op">[</span>mid<span class="op">])</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">int</span> temp<span class="op">=</span>a<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> t <span class="op">=</span> i<span class="op">;</span>t<span class="op">&lt;</span>mid<span class="op">;</span>t<span class="op">++)</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        a<span class="op">[</span>t<span class="op">]=</span>a<span class="op">[</span>t<span class="op">+</span><span class="dv">1</span><span class="op">];</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>      a<span class="op">[</span>mid<span class="op">]=</span>temp<span class="op">;</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>      mid<span class="op">--;</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> end<span class="op">;</span>i<span class="op">&gt;</span>mid<span class="op">;</span>i<span class="op">--)</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>a<span class="op">[</span>i<span class="op">]&lt;</span>a<span class="op">[</span>mid<span class="op">])</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>      <span class="dt">int</span> temp<span class="op">=</span>a<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> t <span class="op">=</span> i<span class="op">;</span>t<span class="op">&gt;</span>mid<span class="op">;</span>t<span class="op">--)</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>        a<span class="op">[</span>t<span class="op">]=</span>a<span class="op">[</span>t<span class="op">-</span><span class="dv">1</span><span class="op">];</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>      a<span class="op">[</span>mid<span class="op">]=</span>temp<span class="op">;</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>      mid<span class="op">++;</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mid<span class="op">;</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> quicksort<span class="op">(</span><span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">)</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> mid<span class="op">;</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>end <span class="op">&gt;</span> start<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> partition<span class="op">(</span>start<span class="op">,</span> end<span class="op">);</span></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>start<span class="op">,</span> mid<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>mid<span class="op">+</span><span class="dv">1</span><span class="op">,</span> end<span class="op">);</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>  quicksort<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">9</span><span class="op">);</span></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span><span class="dv">10</span><span class="op">;</span>i<span class="op">++)</span>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span>a<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>我估计这个应该不是最优算法,在原书内含和partition函数以外的部分都是用于测试</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

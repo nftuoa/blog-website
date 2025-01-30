@@ -1,9 +1,9 @@
-
 ---
-title: "《Linux C编程一站式学习》习题解答"
-author: "Oscar Tuo"
-date: "2025-01-27"
-categories: [programming]
+title: 《Linux C编程一站式学习》习题解答
+author: Oscar Tuo
+date: 2025-01-29
+categories:
+  - programming
 ---
 
 **学这本书主要是为了满足[ysyx](http://ysyx.oscc.cc)的要求,故会先以一个较快的速度更新完ysyx要求的部分(第1-9章, 第11-16章, 第21章, 第23-25章, 以及第26章第1节),未经特殊标记的程序默认采用C17标准编译通过。**
@@ -485,4 +485,64 @@ rand()%11+10
 暂缺...
 
 ## 第十一章
+
+### 习题11-4
+
+```c
+#include <stdio.h>
+int a[10]={1,2,3,4,5,6,7,8,9,0};
+int partition(int start, int end)
+{
+	/*从a[start..end]中选取一个pivot元素（比如选a[start]为pivot）;
+	在一个循环中移动a[start..end]的数据，将a[start..end]分成两半，
+	使a[start..mid-1]比pivot元素小，a[mid+1..end]比pivot元素大，而a[mid]就是pivot元素;*/
+	int mid = (int) (start+end)/2;
+  for (int i = start;i<mid;i++)
+  {
+    if(a[i]>a[mid])
+    {
+      int temp=a[i];
+      for(int t = i;t<mid;t++)
+      {
+        a[t]=a[t+1];
+      }
+      a[mid]=temp;
+      mid--;
+    }
+  }
+  for (int i = end;i>mid;i--)
+  {
+    if(a[i]<a[mid])
+    {
+      int temp=a[i];
+      for(int t = i;t>mid;t--)
+      {
+        a[t]=a[t-1];
+      }
+      a[mid]=temp;
+      mid++;
+    }
+  }
+
+  return mid;
+}
+
+void quicksort(int start, int end)
+{
+	int mid;
+	if (end > start) {
+		mid = partition(start, end);
+		quicksort(start, mid-1);
+		quicksort(mid+1, end);
+	}
+}
+
+int main(void)
+{
+  quicksort(0,9);
+  for(int i = 0;i<10;i++)printf("%d\n",a[i]);
+}
+```
+
+*我估计这个应该不是最优算法,在原书内含和partition函数以外的部分都是用于测试*
 

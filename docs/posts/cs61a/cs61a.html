@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Oscar Tuo">
+<meta name="dcterms.date" content="2025-01-29">
 
-<title>Oscar Tuo’s Blog – nftuoa-blog</title>
+<title>《Composing Programs》(Berkeley CS61A)习题解答 – nftuoa-blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bd8cb2610f6c2810c4bc87234a365cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bd8cb2610f6c2810c4bc87234a365cf8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">nftuoa-blog</span>
     </a>
   </div>
@@ -149,7 +125,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,249 +148,63 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Oscar Tuo’s Blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">《Composing Programs》(Berkeley CS61A)习题解答</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">programming</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Oscar Tuo </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 29, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y2lyY3VpdA==">circuit <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3lzdGVt">system <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNsYXRpb24=">translation <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>https://www.composingprograms.com/</p>
+<p>https://sicp.pascal-lab.net/2024/ <em>感谢南京大学的无私奉献，我现在可以极为便捷地获取到CS61A的所有Lab,HW和Disc了</em></p>
+<p>(使用每个Handout里都有的ok文件即可本地judge)</p>
+<p>回来吧，我的Python基础😭</p>
+<section id="lab00" class="level2">
+<h2 class="anchored" data-anchor-id="lab00">Lab00</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> twenty_twenty_four():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">11</span><span class="op">*</span>(<span class="dv">45</span><span class="op">+</span><span class="dv">1</span>)<span class="op">*</span><span class="dv">4</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="bu">sum</span>(a, b):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">+</span>b</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> diff_square(a, b):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">*</span>a<span class="op">-</span>b<span class="op">*</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-
-<div class="quarto-post image-right" data-index="0" data-categories="cHJvZ3JhbW1pbmc=" data-listing-date-sort="1738080000000" data-listing-file-modified-sort="1738249231017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="844">
-
-<div class="thumbnail">
-<a href="./posts/linuxc/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/linuxc/index.html" class="no-external">《Linux C编程一站式学习》习题解答</a></h3>
-<div class="listing-subtitle"><a href="./posts/linuxc/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/linuxc/index.html" class="no-external"><strong>学这本书主要是为了满足ysyx的要求,故会先以一个较快的速度更新完ysyx要求的部分(第1-9章, 第11-16章, 第21章, 第23-25章, 以及第26章第1节),未经特殊标记的程序默认采用C17标准编译通过。</strong></a></div>
-
-</div>
-<div class="metadata"><a href="./posts/linuxc/index.html" class="no-external">
-<div class="listing-date">Jan 29, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="1" data-categories="cHJvZ3JhbW1pbmc=" data-listing-date-sort="1738080000000" data-listing-file-modified-sort="1738162000157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22">
-
-<div class="thumbnail">
-<a href="./posts/cs61a/cs61a.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/cs61a/cs61a.html" class="no-external">《Composing Programs》(Berkeley CS61A)习题解答</a></h3>
-<div class="listing-subtitle"><a href="./posts/cs61a/cs61a.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/cs61a/cs61a.html" class="no-external">https://www.composingprograms.com/</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/cs61a/cs61a.html" class="no-external">
-<div class="listing-date">Jan 29, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="2" data-categories="Y2lyY3VpdA==" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1738162009346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="12">
-
-<div class="thumbnail">
-<a href="./posts/circuits/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/circuits/index.html" class="no-external">《Fundamentals of Electric Circuits》(Alexander)习题解答</a></h3>
-<div class="listing-subtitle"><a href="./posts/circuits/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2lyY3VpdA=='); return false;">circuit</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/circuits/index.html" class="no-external">我该管管自己这个酷爱开新坑的毛病了（</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/circuits/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="3" data-categories="dHJhbnNsYXRpb24=" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1738162015383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-
-<div class="thumbnail">
-<a href="./posts/glory1/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/glory1/index.html" class="no-external">《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点</a></h3>
-<div class="listing-subtitle"><a href="./posts/glory1/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNsYXRpb24='); return false;">translation</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/glory1/index.html" class="no-external">在1932年那个绝望的夏天，华盛顿特区宛若一座被团团包围的欧洲小国首都。这座城市自从五月，两万五千名一贫如洗的一战老兵携妻带子在其中的公园里、垃圾堆里、废旧仓库以及空商店里安营扎寨后便如此了。在一位荣誉奖章获得者的带领下，在华盛顿万千居民沉默的注视下，老兵们四处行军、大唱军歌；他们身披褪色的棉质美国国旗，在宾州大道上游行。然而，在大部分时间他们也…</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/glory1/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="4" data-categories="dHJhbnNsYXRpb24=" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1738161983201" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-
-<div class="thumbnail">
-<a href="./posts/glory2/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/glory2/index.html" class="no-external">新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”</a></h3>
-<div class="listing-subtitle"><a href="./posts/glory2/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNsYXRpb24='); return false;">translation</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/glory2/index.html" class="no-external">总统大选后不久，一群共产主义者突如其来地到达了东六十五街的49号(译者注:罗斯福那时的办公室)。当选总统款待了他们，但是当其中一人说“我们想要您告诉胡佛总统联邦政府必须……”时，罗斯福严厉地打断了他。“我不能让总统干任何事，”他说道，“在联邦政府的角度下，我现在不过只是一介草民。”他想表达的也的确是这个意思。在获得可以行使的权力前，他并不会插手这…<br><br><br><br><br><br><br><br><br></a></div>
-
-</div>
-<div class="metadata"><a href="./posts/glory2/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-<div class="quarto-post image-right" data-index="5" data-categories="c3lzdGVt" data-listing-date-sort="1737907200000" data-listing-file-modified-sort="1737993420088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
-
-<div class="thumbnail">
-<a href="./posts/csapp/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a>
-</div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/csapp/index.html" class="no-external">《CS:APP》学习笔记(1)计算机系统巡游</a></h3>
-<div class="listing-subtitle"><a href="./posts/csapp/index.html" class="no-external"></a></div>
-
- 
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3lzdGVt'); return false;">system</div>
-
-</div>
- 
-
-<div class="delink listing-description"><a href="./posts/csapp/index.html" class="no-external">作为一名身在EE心在CS的不合格EE新生,CMU的神课<em>Computer Systems:A Programmer’s Perspective</em>一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。</a></div>
-
-</div>
-<div class="metadata"><a href="./posts/csapp/index.html" class="no-external">
-<div class="listing-date">Jan 27, 2025</div>
-<div class="listing-author">Oscar Tuo</div>
-
-</a></div>
-
-</div>
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
