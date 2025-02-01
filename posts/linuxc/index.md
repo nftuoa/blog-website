@@ -546,3 +546,106 @@ int main(void)
 
 *我估计这个应该不是最优算法,在原书内含和partition函数以外的部分都是用于测试*
 
+### 习题11-5
+
+#### 1.
+没有，至少得把每个元素都遍历一遍才能确定是最小的
+
+#### 2.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int data[5] = {1,2,3,4,5};
+  int min=1,second=2;
+  for(int i = 1;i<5;i++)
+  {
+    if (data[i]<=second && data[i] >= min)
+      second = data[i];
+    else if (data[i]<=min)
+      min = data[i];
+  }
+  printf("%d\n",second);
+}
+```
+
+我不是很确定这个的复杂度算不算是n
+
+#### 3.
+
+```c
+#include <stdio.h>
+
+
+int a[5] = {1,2,3,4,5};
+
+int partition(int start, int end)
+{
+	int mid = (int) (start+end)/2;
+  for (int i = start;i<mid;i++)
+  {
+    if(a[i]>a[mid])
+    {
+      int temp=a[i];
+      for(int t = i;t<mid;t++)
+      {
+        a[t]=a[t+1];
+      }
+      a[mid]=temp;
+      mid--;
+    }
+  }
+  for (int i = end;i>mid;i--)
+  {
+    if(a[i]<a[mid])
+    {
+      int temp=a[i];
+      for(int t = i;t>mid;t--)
+      {
+        a[t]=a[t-1];
+      }
+      a[mid]=temp;
+      mid++;
+    }
+  }
+
+
+  return mid;
+}
+
+void quicksort(int start, int end)
+{
+	int mid;
+	if (end > start) {
+		mid = partition(start, end);
+		quicksort(start, mid-1);
+		quicksort(mid+1, end);
+	}
+}
+
+int order_statistic(int start, int end, int k)
+{
+	int i = partition(start,end);
+	if (k-1 == i)
+	  return a[i];
+	else if (k >= i)
+  {
+    quicksort(i+1,4);
+    return a[k-1];
+  }
+	else
+  { 
+    quicksort(0,i-1);
+    return a[k-1];
+  }
+}
+
+int main(void)
+{
+  printf("%d\n",order_statistic(0,4,1));
+}
+```
+
+ds说这个的平均复杂度接近$$n^2$$,我不太相信但是这个的平均复杂度肯定比n大得多，我还需要再钻研一下。
