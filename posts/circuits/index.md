@@ -12,13 +12,13 @@ categories: [circuit]
 
 ### 1.1 
 a.
-$$ Q=ne=0.1036 C$$
+$$ Q=ne=-0.1036 C$$
 b.
-$$ Q=ne=0.1986 C$$
+$$ Q=ne=-0.1986 C$$
 c.
-$$ Q=ne=3.947 C$$
+$$ Q=ne=-3.947 C$$
 d.
-$$ Q=ne=26.081 C$$
+$$ Q=ne=-26.081 C$$
 
 ### 1.2
 a.
@@ -69,3 +69,18 @@ $$i=\begin{cases}25A,& 0\le t \le 2s,\\-25A,&2s<t<6s,\\25A,&6s\le t \le 8s \end{
 ### 1.8
 $$i=\begin{cases}10tmA,& 0\le t \le 1ms,\\10mA,&1ms<t<2ms,\end{cases}$$
 $$Q=\int_{t0}^{t}i=\int_{0}^{1ms}i+\int_{1ms}^{2ms}i=5\mu C+10\mu C=15\mu C$$
+
+### 1.9
+$$i=\begin{cases}10A,& 0\le t \le 1s,\\(15-5t)A,&1s<t<2s,\\5A,&2s\le t \le 4s,\\(25-5t),&4s<t\le5s \end{cases}$$
+then,
+$$ Q=\int_{t0}^{t}i=\begin{cases}10t C,& 0\le t \le 1s,\\(15t-2.5t^2-2.5)C,&1s<t<2s,\\(17.5+5t)C,&2s\le t \le 4s,\\(25t-2.5t^2-22.5)C,&4s<t\le5s \end{cases} $$
+so
+$$Q\arrowvert_{t=1s}=10C,Q\arrowvert_{t=3s}=32.5C,Q\arrowvert_{t=5s}=40C$$
+
+### 1.10
+
+$$ Q=\int_{t0}^{t}i=0.15A $$
+
+### 1.11
+
+$$Q=\int_{t0}^{t}i=3888C,w=\int_{to}^{t}vi\ dt=5832J$$
