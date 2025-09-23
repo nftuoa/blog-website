@@ -8,15 +8,11 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/nftuoa
       - icon: twitter
         href: https://twitter.com
 format:
   html:
-    theme:
-      light:
-        - _extensions/catppuccin/latte.scss
-      dark:
-        - _extensions/catppuccin/frappe.scss
+    theme: lux
 
 

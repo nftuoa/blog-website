@@ -39,14 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-edd152a1d87dd58d6b263c182018fc24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-f9bd52f09e29aeacd3d9a6139364b11a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-edd152a1d87dd58d6b263c182018fc24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cc1d64809b8ed731f92ea1275fe9f05b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,169 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -264,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/nftuoa"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -276,7 +110,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -324,7 +157,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-
 <p>总统大选后不久，一群共产主义者突如其来地到达了东六十五街的49号(译者注:罗斯福那时的办公室)。当选总统款待了他们，但是当其中一人说“我们想要您告诉胡佛总统联邦政府必须……”时，罗斯福严厉地打断了他。“我不能让总统干任何事，”他说道，“在联邦政府的角度下，我现在不过只是一介草民。”他想表达的也的确是这个意思。在获得可以行使的权力前，他并不会插手这些事务。而在这段时间，他去文森特·阿斯特的游艇上捕鱼，选了一套不怎么引人注目的内阁，并且似乎对身边所有人都表示赞同。那位正努力抗衡阿肯色州参议员约瑟夫·鲁滨逊的保守派淫威的休伊·朗评价当选总统道“当我跟他讲话时，他说‘对！对！对！’，但是第二天鲁滨逊去找他，他也说‘对！对！对！’说不定他对所有人都是这么讲的。”社会崩溃的速度实在太快了(甚至埃莉诺·罗斯福(译者注:罗斯福夫人)都开始想到底还有没有人“能在今天做点事去拯救美国”了)，这样罗斯福那种亲切但是含糊，事不关己高高挂起的态度就显得有些不负责任了。人们觉得他应该去做些什么事情——不过倒没有人指望他比指望那位将要下台的总统更多。<br> 十一月，总统向当选总统发了一封电报，提议他们应该进行一次商谈。罗斯福在去佐治亚州的路上顺路去了趟白宫，但尽管他们的商谈一直持续到了那天的后半夜，这场商谈却什么也没谈成。胡佛的一位内阁成员议论罗斯福道“我们现在在深渊里有一位难兄难弟了，并且他也没有能力把我们救出去。”不过能让罗斯福爬不出来的洞还没被挖好呢，多少个小时里，他不停地拒绝了登上行政机关那将沉的船的邀请。在这次拜访后，罗斯福感到他不轻率做出承诺的信念愈加坚定了，他是在温泉疗养院读报纸时学到这种智慧的。胡佛向国会发表了他的最后一篇国情咨文，其中不过是他那些陈词滥调的一再重复：税还要继续加收；欧洲必须支付他们在战时欠下的债务；“我们已经建立了一种个人主义的体系。在我们美国体系的背后，我们必须允许社会与经济力量自由自由地发挥作用”；国家必须有“对未来的信心”…. <br>美国的耐心快要耗尽了，它的钞票也是。在1933年的情人那天，胡佛在共和党全国代表大会之前做了他的告别演讲，而美国的银行系统也在这一天迎来了它的最终瓦解。那天下午，密西根州长威廉姆·A·卡姆斯托克接到了一通紧急电话，请他去底特律市中心参加一场银行家的会议，此后他便一直是其中的一员了。底特律的联合守护信托公司已山穷水尽，如果它倒闭，这座城里的每家银行恐怕都要为它陪葬，故而那些金融家请求卡姆斯托克能在全州范围内宣布银行暂停营业。那天半夜他同意了，开车回到首府兰辛州后，他发布了一条公告，将全州的550家银行关闭八天，他把这叫做一个假期。 <br>在华盛顿，胡佛给罗斯福写了一封信，他当时心急如焚，以至于连信封上他继任者的名字都写错了。当选总统已经习惯于各种风浪了(就在上一周，一名失业的瓦匠向他开枪，却不小心打到了他身边的芝加哥州长梅尔·柯马克)，不过这份通讯在这些风浪中也算更加令人发指的那一种。罗斯福认真读了一遍，然后称它“无耻”。这封信也的确就是这样。胡佛无力地称国家对新政府想要做的事情感到恐慌。以爱国主义和“自信心”的名义，他还要求罗斯福公开承诺不会修改政府的方针。将要卸任的总统当然完全知道他正在要求什么东西；他向宾夕法尼亚州的参议员戴维·A·里德写道“我意识到如果这些宣示是由当选总统做出的，他将会批准共和党行政的所谓整体主要计划；这也就是说，他新政的百分之九十都将被废止。”他已经告诉朋友们，他觉得罗斯福就是一个友善的软柿子，现在他根本就是把罗斯福当一个蠢货来对待。而当他输掉了选举时，他的心思又变了：对亨利·史汀生他说罗斯福就是“一个疯子”。 <br>当选总统此时也未必确信他有没有把自己绑到胡佛政策的贼船上，但他确信在那种政策下，整个国家马上就要崩溃了。 <br>在房产价值的“跳水”下，密西根州的危机愈发严重，而这种危机是全国性的。自大萧条以来，5500家银行已经破产；公众们以委婉的词语来讲，“很紧张”。他们的紧张转化为囤积货物的行动。黄金以每天两千万美元(译注:美国当时实行金本位制，2000万美元约换30吨黄金)的速度从金库中被换走，换不到金子的储户也要取走纸币，以至于在作为货币基石的黄金储量见底的情况下，财政部还被要求扩大它的货币储量。 <br>涉及银行的恐慌总是自杀性的。在这场危机之中，无论如何，形势总是或多或少地被三年的通缩给复杂化了。最保险的那些担保与安全机构之价值也大幅下跌到只剩它们初始值的一点。全美国的18569家银行共有大约六十亿美元现金，可却要承担410亿美元的存款，那些银行家被迫变卖他们的按揭债券与证券，故而损失惨重。 <br>现在密西根州的银行也都倒闭了，全国的银行仅剩的那点黄金，每日的流出量也陡然升到了三千七百万美元；每天被取出的存款则高达1.2亿多美元。各地的银行都挤满了绝望的想要取钱的存户——在布朗克斯州有一位年轻的妈妈做起了出租她的孩子的生意：25美分一趟，租到孩子的女人便可依次要求插队并优先取款。二月二十日那周，参众两院都在忙着为取消禁酒令而大呼小叫，巴尔的摩信托公司则在周五那天支付出去了1300万美元，这几乎是它的半个家底了。在上一个周五，州长阿尔伯特·C·里奇宣布马里兰州的二百多家银行歇业，成为了第二个倒下的州。 <br>为了振作信心，那些有责任心的人们不得不刻意地下功夫来保持他们的态度。《底特律新闻》评论道“我们未来将会回首这段经历，然后付之一笑”《巴尔的摩太阳报》振奋道“生活……总会像之前那样被各种可喜或是不可喜的事情重新填满。而且相比以往，我们还会多出一份属于我们大家额外的谈资。”巴尔的摩商会的主席说他看不出贸易不能恢复如常的理由；国税局则发出一份言辞激烈的备忘录，要求在两周内缴税。 <br>伦敦那边没有什么能打破这虚幻的幻景的消息。依罗伯特·舍伍德所讲，罗斯福清楚他有一个优势——那就是他是一个“好榜样”。作为把握时机的老手，罗斯福清楚胡佛的退场有多狼狈不堪，他自己的登场就会有多光彩耀人。如果说他在自己没到桥头就不过桥就是不负责的话——更何况他那时实在也很难说能做些什么——这至少也是一种对美式政治传统的遵循。就像查尔斯·A·贝尔德指出，直到林肯被赋予权力之前，他都“从未把自己纳入那种可以无条件地从心所欲的系统中。他理解这些东西，但从未把自己投身到其中。”同样地，在财政秘书的选择上，罗斯福也展现出了这样宝贵的品质——他选了一位略显淘气的铁路设备制造商，他戴着遮丑用的假发，喜欢讲双关语，收藏五美元的银币，一有业余时间就去给吉他编曲。一周后，当新的行政团队入驻办公室时，全国人都认为这位威廉姆·H·伍丁精力充沛、思维机敏；但在一夜之前，他还只被记作是一首儿歌的编曲者:</p>
 <blockquote class="blockquote">
 <p>让我们像蓝鸲一样，<br>
@@ -342,19 +174,6 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

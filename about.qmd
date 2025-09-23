@@ -2,7 +2,7 @@
 title: "About"
 image: profile.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: twitter
       text: Twitter
@@ -13,4 +13,4 @@ about:
 
 ---
 
-About this blog
+I don't know what makes me real, maybe it's the current moment, or maybe it's you.

@@ -26,9 +26,9 @@ Java的所有函数必须在类内定义，也就是方法
 ```java
 public className(){
 }
-定义
-```
 
+```
+定义
 ```Java
 public static typename funcname(){
 }
