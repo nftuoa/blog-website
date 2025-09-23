@@ -1,0 +1,72 @@
+---
+title: " CS61B要点速记 "
+author: "Oscar Tuo"
+date: "2025-09-23"
+categories: [Java]
+
+---
+
+听CS61B听到第四节写disc发现前面忘光了，所以决定写个这个备作复习
+
+## main函数定义
+```java
+public static void main(String[] args)
+```
+
+## Static Typing
+Java变量必须有唯一确定的类型，一经定义不能改变
+
+## 函数即方法
+
+Java的所有函数必须在类内定义，也就是方法
+一个项目里的类不用import就能用
+
+## 实例和实例方法
+类的实例化函数通过
+```java
+public className(){
+}
+定义
+```
+
+```Java
+public static typename funcname(){
+}
+``` 
+这种是静态方法，可以直接从类名调用，但是相应地也调用不了实例的变量和函数
+
+```java
+public typename funcname(){
+}
+```
+这种是实例方法，实例化以后才可以调用，可以调用当前实例内的变量和其他方法
+
+实例化函数和实例方法不用把self当参数传入
+通过`self.funcname`/ `self.varname`或者直接`funcname`/`varname`调用实例内变量与方法效果是一样的
+
+相似地，通过`public static typename varname/funcname` 可以定义静态变量，通过`public typename varname/funcname` 可以定义实例变量
+
+实例变量也必须在类的声明中声明，实例化以后不能再添加新的变量
+
+实例化后，实例只会引用其类的静态变量而不会专门初始化一个自己的，也就是说改了类里的静态变量它的实例都会跟着改
+
+public的意思是同一个项目里的其他对象也可以访问，private是该类/该实例私有的
+
+如果变量/方法前边没有public也没有private，那么它就是package-private的，也就是对同一个package内public，之外则private，package需要自己定义
+
+## List
+
+首先需要
+```java
+import java.util.List
+```
+但是
+```java
+List L = new List();
+```
+不会被编译，这是因为List是一个抽象类(只作别人的基类，自己不能实例化)
+需要再
+```java
+import java.util.ArrayList
+```
+或其他List类型，比如LinkedList
