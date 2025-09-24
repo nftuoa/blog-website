@@ -56,6 +56,13 @@
     "text": "处理器读取并处理内存中存储的指令\n我们可以利用Shell来运行我们编写的Hello程序。Shell是一种命令行解释程序,这意味着它接受命令行输入并执行。我们在Shell中输入./hello, Shell会检测到hello是一个可执行文件，并将它加载到内存中后执行。程序执行完成后，Shell会继续请求命令行输入。\n\n计算机系统的硬件组成\n\n总线\n总线是沿着整个系统运行的一系列电子线路的集合。总线可以将信息位在元件之间来回传输, 总线一般所传输的信息位数是固定的, 这些字节的组块被称作“语词”, “语词”长度一般为4字节(也就是32位)或8字节(也就是64位) #### I/O 设备 I/O设备以输入或输出的方式建立计算机与外界的连接。I/O设备通过控制器或者适配器连接到I/O总线。控制器是主板上的专门芯片，适配器则是一些连接在主板上的设备。\n\n\n主内存\n主内存是一种临时储存设备，在处理器执行程序时会将程序与对应的数据暂存进内存。内存一般采用DRAM(Dynamic Random Access Memory,动态随机访问存储)技术。在软件层面内存会被抽象为一系列线性的数组，并从0开始编号，这一编码被称为内存地址。\n\n\n处理器\n这里的处理器是一般说的中央处理器(CPU)，是处理并执行内存中存储的指令的元件。在其中有一个单个语词长度的寄存器,被称作PC(Program Counter,程序计数器)。PC在运行中指向内存中的某条机器语言指令(也就是现在要运行的)。 只要计算机接电，处理器就会不断执行程序计数器所指的那条指令，程序会主动更新程序计时器以便执行下一条命令。处理器根据其指令集(ISA)的不同，具有其独有且唯一的指令执行模型，其中包括执行指令的顺序与执行指令的一系列步骤。 CPU能执行的指令实际上只有简单的几条，它们都围绕着内存、寄存器与ALU（算术/逻辑单元）展开，例如Load(从内存向寄存器加载指令)，Store(从寄存器向内存写入数据)，Operate(利用ALU执行)及Jump(利用PC加载下一条指令)\n\n\n\nHello程序的执行过程\n​"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Oscar Tuo’s Blog",
+    "section": "",
+    "text": "CS61B要点速记\n\n\n\nJava\n\n\n\n\n\n\n\n\n\nSep 23, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《Linux C编程一站式学习》习题解答\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《CS:APP》学习笔记(1)计算机系统巡游\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/linuxc/index.html",
     "href": "posts/linuxc/index.html",
     "title": "《Linux C编程一站式学习》习题解答",
@@ -124,20 +131,6 @@
     "title": "《Linux C编程一站式学习》习题解答",
     "section": "第十一章",
     "text": "第十一章\n\n习题11-4\n#include &lt;stdio.h&gt;\nint a[10]={1,2,3,4,5,6,7,8,9,0};\nint partition(int start, int end)\n{\n    /*从a[start..end]中选取一个pivot元素（比如选a[start]为pivot）;\n    在一个循环中移动a[start..end]的数据，将a[start..end]分成两半，\n    使a[start..mid-1]比pivot元素小，a[mid+1..end]比pivot元素大，而a[mid]就是pivot元素;*/\n    int mid = (int) (start+end)/2;\n  for (int i = start;i&lt;mid;i++)\n  {\n    if(a[i]&gt;a[mid])\n    {\n      int temp=a[i];\n      for(int t = i;t&lt;mid;t++)\n      {\n        a[t]=a[t+1];\n      }\n      a[mid]=temp;\n      mid--;\n    }\n  }\n  for (int i = end;i&gt;mid;i--)\n  {\n    if(a[i]&lt;a[mid])\n    {\n      int temp=a[i];\n      for(int t = i;t&gt;mid;t--)\n      {\n        a[t]=a[t-1];\n      }\n      a[mid]=temp;\n      mid++;\n    }\n  }\n\n  return mid;\n}\n\nvoid quicksort(int start, int end)\n{\n    int mid;\n    if (end &gt; start) {\n        mid = partition(start, end);\n        quicksort(start, mid-1);\n        quicksort(mid+1, end);\n    }\n}\n\nint main(void)\n{\n  quicksort(0,9);\n  for(int i = 0;i&lt;10;i++)printf(\"%d\\n\",a[i]);\n}\n我估计这个应该不是最优算法,在原书内含和partition函数以外的部分都是用于测试\n\n\n习题11-5\n\n1.\n没有，至少得把每个元素都遍历一遍才能确定是最小的\n\n\n2.\n#include &lt;stdio.h&gt;\n\nint main(void)\n{\n  int data[5] = {1,2,3,4,5};\n  int min=1,second=2;\n  for(int i = 1;i&lt;5;i++)\n  {\n    if (data[i]&lt;=second && data[i] &gt;= min)\n      second = data[i];\n    else if (data[i]&lt;=min)\n      min = data[i];\n  }\n  printf(\"%d\\n\",second);\n}\n我不是很确定这个的复杂度算不算是n\n\n\n3.\n#include &lt;stdio.h&gt;\n\n\nint a[5] = {1,2,3,4,5};\n\nint partition(int start, int end)\n{\n    int mid = (int) (start+end)/2;\n  for (int i = start;i&lt;mid;i++)\n  {\n    if(a[i]&gt;a[mid])\n    {\n      int temp=a[i];\n      for(int t = i;t&lt;mid;t++)\n      {\n        a[t]=a[t+1];\n      }\n      a[mid]=temp;\n      mid--;\n    }\n  }\n  for (int i = end;i&gt;mid;i--)\n  {\n    if(a[i]&lt;a[mid])\n    {\n      int temp=a[i];\n      for(int t = i;t&gt;mid;t--)\n      {\n        a[t]=a[t-1];\n      }\n      a[mid]=temp;\n      mid++;\n    }\n  }\n\n\n  return mid;\n}\n\nvoid quicksort(int start, int end)\n{\n    int mid;\n    if (end &gt; start) {\n        mid = partition(start, end);\n        quicksort(start, mid-1);\n        quicksort(mid+1, end);\n    }\n}\n\nint order_statistic(int start, int end, int k)\n{\n    int i = partition(start,end);\n    if (k-1 == i)\n      return a[i];\n    else if (k &gt;= i)\n  {\n    quicksort(i+1,4);\n    return a[k-1];\n  }\n    else\n  { \n    quicksort(0,i-1);\n    return a[k-1];\n  }\n}\n\nint main(void)\n{\n  printf(\"%d\\n\",order_statistic(0,4,1));\n}\nds说这个的平均复杂度接近\\[n^2\\],我不太相信但是这个的平均复杂度肯定比n大得多，我还需要再钻研一下。"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Oscar Tuo’s Blog",
-    "section": "",
-    "text": "CS61B要点速记\n\n\n\nJava\n\n\n\n\n\n\n\n\n\nSep 23, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《Linux C编程一站式学习》习题解答\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n村口大爷的高谈阔论不应因其身份显赫便可出版成书——读《浪潮之巅》有感\n\n\n\ncircuit\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《CS:APP》学习笔记(1)计算机系统巡游\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/bookNote/index.html",
-    "href": "posts/bookNote/index.html",
-    "title": "村口大爷的高谈阔论不应因其身份显赫便可出版成书——读《浪潮之巅》有感",
-    "section": "",
-    "text": "我写下这篇读书笔记是在大年初六，小城市的过年本就冷清，再加上除夕那天的大雪，家里几乎没来什么亲戚。说来也是奇怪，往年听着家中四五十岁的长辈靠着自己在短视频平台了解到的信息而说的那些半真半假的高谈阔论，总是感觉不太舒服；而今年家中没有什么亲戚，我倒是怀念上了这种感觉。既然无事，便在我的Kindle上读起了作者颇负盛名，网络评价极高，而且还被学院作为推荐书目的吴军博士的大作《浪潮之巅》。读过几十页后，我不禁感慨：上述的那种感觉恐怕是守恒的，虽然无法从长辈那里获得，吴军博士的著作倒是为我补满了这一空缺。然而在心满意足之余，我也不禁担忧：倘若其他读者没有像我一样，读过《硅谷之火》等作品以兼听则明，难道他们对这一行业的第一认识，就不得不充斥着这些半真半假的信息了吗？所以我决定，一边把这本书当作笑谈，一边刨根问底，尽力找出其中的错误之处以正视听。"
   },
   {
     "objectID": "posts/glory1/index.html",
