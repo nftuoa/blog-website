@@ -186,6 +186,20 @@
     "href": "posts/CS61B/index.html#list",
     "title": "CS61B要点速记",
     "section": "List",
-    "text": "List\n首先需要\nimport java.util.List\n但是\nList L = new List();\n不会被编译，这是因为List是一个抽象类(只作别人的基类，自己不能实例化) 需要再\nimport java.util.ArrayList\n或其他List类型，比如LinkedList"
+    "text": "List\n首先需要\nimport java.util.List\n但是\nList L = new List();\n不会被编译，这是因为List是一个抽象类(只作别人的基类，自己不能实例化) 需要\nimport java.util.ArrayList\n然后再\nList L = new ArrayList()\n或其他List类型，比如LinkedList\n也就是说:List是抽象数据类型，LinkedList/ArrayList等是它的具体实现\n通过\nL.get(0)\n可以索引列表\n通过\nList&lt;String&gt; L = new ArrayList&lt;&gt;()\n可以指定存储的数据类型\n\nArray\n一种特殊的类List实现，但不属于List ADT 通过\nint[] x = new int[5];\n即可声明，无需import任何包 但是容量必须声明固定，不包含任何内置方法，只能用[]来索引"
+  },
+  {
+    "objectID": "posts/CS61B/index.html#map",
+    "href": "posts/CS61B/index.html#map",
+    "title": "CS61B要点速记",
+    "section": "Map",
+    "text": "Map\n也就是键值对 Map也是ADT，常用的实现有HashMap和TreeMap\nMap&lt;String, String&gt; L = new TreeMap&lt;&gt;();\n\n    L.put(\"dog\", \"woof\");\n\n    L.put(\"cat\", \"meow\");\nTreeMap自带升序排序，HashMap不会自动排序"
+  },
+  {
+    "objectID": "posts/CS61B/index.html#primitive-types-reference-types",
+    "href": "posts/CS61B/index.html#primitive-types-reference-types",
+    "title": "CS61B要点速记",
+    "section": "Primitive Types & Reference Types",
+    "text": "Primitive Types & Reference Types\nbyte, short, int, long, float, double, boolean, char八种类型叫Primitive Type，也就是所谓的基本类型\n基本类型变量直接对应内存地址 使用类似\nint y = 1;\nint x = y;\n的语法从一个基本类型变量给另一个赋值时，会直接把源变量的所有字节直接复制给目标变量 其他的都是Reference Type,也就是引用类型，实际上就是对象 创建引用类型时会先创建一个该类型的对象并填入默认值，然后调用构造函数填入输入值，最后返回这个对象的一个64位的地址 也就是说引用类型里实际上存的只是地址，当你赋值的时候复制过去的时候也只是地址，那么就会发现两个引用类型变量却指向的是同一个对象\n函数里传参也遵守类似的规则 前面讲到的List、Array等等也是对象，因此使用==比较时实际上比较的是内存地址，要比较内容需要用equals"
   }
 ]

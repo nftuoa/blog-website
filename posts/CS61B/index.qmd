@@ -65,8 +65,68 @@ import java.util.List
 List L = new List();
 ```
 不会被编译，这是因为List是一个抽象类(只作别人的基类，自己不能实例化)
-需要再
+需要
 ```java
 import java.util.ArrayList
 ```
+然后再
+```java
+List L = new ArrayList()
+```
 或其他List类型，比如LinkedList
+
+也就是说:List是抽象数据类型，LinkedList/ArrayList等是它的具体实现
+
+通过
+```java
+L.get(0)
+```
+可以索引列表
+ 
+通过
+```java
+List<String> L = new ArrayList<>()
+```
+可以指定存储的数据类型
+
+### Array
+一种特殊的类List实现，但不属于List ADT
+通过
+```java
+int[] x = new int[5];
+```
+即可声明，无需import任何包
+但是容量必须声明固定，不包含任何内置方法，只能用[]来索引
+
+## Map
+
+也就是键值对
+Map也是ADT，常用的实现有HashMap和TreeMap
+```java
+Map<String, String> L = new TreeMap<>();
+
+    L.put("dog", "woof");
+
+    L.put("cat", "meow");
+```
+TreeMap自带升序排序，HashMap不会自动排序
+
+## Primitive Types & Reference Types
+
+
+byte, short, int, long, float, double, boolean, char八种类型叫Primitive Type，也就是所谓的基本类型
+
+基本类型变量直接对应内存地址
+使用类似
+```java
+int y = 1;
+int x = y;
+```
+的语法从一个基本类型变量给另一个赋值时，会直接把源变量的所有字节直接复制给目标变量
+其他的都是Reference Type,也就是引用类型，实际上就是对象
+创建引用类型时会先创建一个该类型的对象并填入默认值，然后调用构造函数填入输入值，最后返回这个对象的一个64位的地址
+也就是说引用类型里实际上存的只是地址，当你赋值的时候复制过去的时候也只是地址，那么就会发现两个引用类型变量却指向的是同一个对象
+
+函数里传参也遵守类似的规则
+前面讲到的List、Array等等也是对象，因此使用`==`比较时实际上比较的是内存地址，要比较内容需要用`equals`
+
