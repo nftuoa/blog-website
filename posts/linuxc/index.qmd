@@ -454,8 +454,15 @@ int main(void)
 *使用gcc编译时请加入-lm指令，main函数主要是用来测试*
 
 #### 2.
-
-{{< asciinema "enumtest.cast" cols="80" rows="7" autoPlay="true" speed="4" theme="nord" poster="npt:1:23" >}}
+```{asciinema}
+enumtest.cast
+cols: 80
+rows: 7
+autoPlay: true
+speed: 4
+theme: nord
+poster: "npt:1:23"
+```
 
 原因:enum里的RECTANGULAR被后边的初始化语句在main里给覆盖了，而POLAR则还是定义的2
 
