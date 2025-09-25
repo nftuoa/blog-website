@@ -130,3 +130,55 @@ int x = y;
 函数里传参也遵守类似的规则
 前面讲到的List、Array等等也是对象，因此使用`==`比较时实际上比较的是内存地址，要比较内容需要用`equals`
 
+## IntList
+
+```java
+public class IntList {
+
+   public int first;
+
+   public IntList rest;
+
+  
+
+   public IntList(int f, IntList r) {
+
+      first = f;
+
+      rest = r;
+
+   }
+	public int size() {
+
+      if (rest == null) {
+
+         return 1;
+
+      }
+
+      return 1 + this.rest.size();
+      }
+public int iterativeSize() {
+
+      IntList p = this;
+
+      int totalSize = 0;
+
+      while (p != null) {
+
+         totalSize += 1;
+
+         p = p.rest;
+
+      }
+
+      return totalSize;
+
+   }
+   }
+```
+
+课程里的这个IntList实际上是个链表
+
+size是递归实现的size函数，iterativeSize则是迭代实现的
+

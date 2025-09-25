@@ -201,5 +201,12 @@
     "title": "CS61B要点速记",
     "section": "Primitive Types & Reference Types",
     "text": "Primitive Types & Reference Types\nbyte, short, int, long, float, double, boolean, char八种类型叫Primitive Type，也就是所谓的基本类型\n基本类型变量直接对应内存地址 使用类似\nint y = 1;\nint x = y;\n的语法从一个基本类型变量给另一个赋值时，会直接把源变量的所有字节直接复制给目标变量 其他的都是Reference Type,也就是引用类型，实际上就是对象 创建引用类型时会先创建一个该类型的对象并填入默认值，然后调用构造函数填入输入值，最后返回这个对象的一个64位的地址 也就是说引用类型里实际上存的只是地址，当你赋值的时候复制过去的时候也只是地址，那么就会发现两个引用类型变量却指向的是同一个对象\n函数里传参也遵守类似的规则 前面讲到的List、Array等等也是对象，因此使用==比较时实际上比较的是内存地址，要比较内容需要用equals"
+  },
+  {
+    "objectID": "posts/CS61B/index.html#intlist",
+    "href": "posts/CS61B/index.html#intlist",
+    "title": "CS61B要点速记",
+    "section": "IntList",
+    "text": "IntList\npublic class IntList {\n\n   public int first;\n\n   public IntList rest;\n\n  \n\n   public IntList(int f, IntList r) {\n\n      first = f;\n\n      rest = r;\n\n   }\n    public int size() {\n\n      if (rest == null) {\n\n         return 1;\n\n      }\n\n      return 1 + this.rest.size();\n      }\npublic int iterativeSize() {\n\n      IntList p = this;\n\n      int totalSize = 0;\n\n      while (p != null) {\n\n         totalSize += 1;\n\n         p = p.rest;\n\n      }\n\n      return totalSize;\n\n   }\n   }\n课程里的这个IntList实际上是个链表\nsize是递归实现的size函数，iterativeSize则是迭代实现的"
   }
 ]

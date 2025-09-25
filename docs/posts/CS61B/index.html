@@ -267,6 +267,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> y<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>的语法从一个基本类型变量给另一个赋值时，会直接把源变量的所有字节直接复制给目标变量 其他的都是Reference Type,也就是引用类型，实际上就是对象 创建引用类型时会先创建一个该类型的对象并填入默认值，然后调用构造函数填入输入值，最后返回这个对象的一个64位的地址 也就是说引用类型里实际上存的只是地址，当你赋值的时候复制过去的时候也只是地址，那么就会发现两个引用类型变量却指向的是同一个对象</p>
 <p>函数里传参也遵守类似的规则 前面讲到的List、Array等等也是对象，因此使用<code>==</code>比较时实际上比较的是内存地址，要比较内容需要用<code>equals</code></p>
+</section>
+<section id="intlist" class="level2">
+<h2 class="anchored" data-anchor-id="intlist">IntList</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> IntList <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;public <span class="dt">int</span> first<span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;public IntList rest<span class="op">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;public <span class="fu">IntList</span><span class="op">(</span><span class="dt">int</span> f<span class="op">,</span> IntList r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first <span class="op">=</span> f<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rest <span class="op">=</span> r<span class="op">;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;<span class="op">}</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">size</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fu">if</span> <span class="op">(</span>rest <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="op">}</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <span class="dv">1</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">rest</span><span class="op">.</span><span class="fu">size</span><span class="op">();</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="op">}</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">iterativeSize</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntList p <span class="op">=</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int totalSize <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fu">while</span> <span class="op">(</span>p <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;totalSize <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p <span class="op">=</span> p<span class="op">.</span><span class="fu">rest</span><span class="op">;</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="op">}</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return totalSize<span class="op">;</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;<span class="op">}</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;<span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>课程里的这个IntList实际上是个链表</p>
+<p>size是递归实现的size函数，iterativeSize则是迭代实现的</p>
 
 
 </section>
