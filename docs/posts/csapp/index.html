@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -194,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="写在前面" class="level2">
 <h2 class="anchored" data-anchor-id="写在前面">写在前面</h2>
-<p>作为一名身在EE心在CS的不合格EE新生,CMU的神课<em>Computer Systems:A Programmer’s Perspective</em>一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。</p>
+<p>作为一名身在EE心在CS的不合格EE新生<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>,CMU的神课<em>Computer Systems:A Programmer’s Perspective</em>一直令我神往,故而下载了教材阅读,并顺便记录笔记供自查与分享。</p>
 <p>文中可能会有各种难以理解的名词,它们会在随后的章节中被解释,我之所以不在这里解释是因为我也还不会（。</p>
 </section>
 <section id="信息二进制位语境" class="level2">
@@ -230,7 +259,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="计算机系统的硬件组成">计算机系统的硬件组成</h3>
 <section id="总线" class="level4">
 <h4 class="anchored" data-anchor-id="总线">总线</h4>
-<p>总线是沿着整个系统运行的一系列电子线路的集合。总线可以将信息位在元件之间来回传输, 总线一般所传输的信息位数是固定的, 这些字节的组块被称作“语词”, “语词”长度一般为4字节(也就是32位)或8字节(也就是64位) #### I/O 设备 I/O设备以输入或输出的方式建立计算机与外界的连接。I/O设备通过控制器或者适配器连接到I/O总线。控制器是主板上的专门芯片，适配器则是一些连接在主板上的设备。</p>
+<p>总线是沿着整个系统运行的一系列电子线路的集合。总线可以将信息位在元件之间来回传输, 总线一般所传输的信息位数是固定的, 这些字节的组块被称作“语词”, “语词”长度一般为4字节(也就是32位)或8字节(也就是64位)</p>
+</section>
+<section id="io-设备" class="level4">
+<h4 class="anchored" data-anchor-id="io-设备">I/O 设备</h4>
+<p>I/O设备以输入或输出的方式建立计算机与外界的连接。I/O设备通过控制器或者适配器连接到I/O总线。控制器是主板上的专门芯片，适配器则是一些连接在主板上的设备。</p>
 </section>
 <section id="主内存" class="level4">
 <h4 class="anchored" data-anchor-id="主内存">主内存</h4>
@@ -270,6 +303,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>(类)Unix系统里，各种I/O设备都被抽象为文件，对它们的操作全部通过文件读写实现，这部分System Call叫作Unix I/O。</p>
 </section>
 </section>
+<section id="系统间的网络通讯" class="level2">
+<h2 class="anchored" data-anchor-id="系统间的网络通讯">系统间的网络通讯</h2>
+<p>网络也可以被看做一个Unix I/O设备来操作。 两个终端系统中间通过服务器传输数据。 ## 一些重要的概念 ### 阿姆达尔定律</p>
+<p>假设系统的一个部分占用系统运行时间的比例为<span class="math inline">\(\alpha\)</span>，而这一部分的性能提升到了原来的k倍，则提速倍数（原耗时/新耗时） <span class="math inline">\(S=1/((1-\alpha)+\alpha/k)\)</span></p>
+<section id="并发与并行" class="level3">
+<h3 class="anchored" data-anchor-id="并发与并行">并发与并行</h3>
+<section id="线程级别的并发" class="level4">
+<h4 class="anchored" data-anchor-id="线程级别的并发">线程级别的并发</h4>
+<p>传统的并发是在单CPU上实现的，处理器不断地在任务之间切换，模拟出了并发执行的效果，仅通过这种技术便可以实现多任务。 而近年来我们则有了更多选择。一是处理器的核心开始变多，而每个核心都有自己的独立L1、L2缓存，可以真正意义上同时运行多个任务。 二是超线程技术。这种技术可以让一个核心执行多个控制流，传统处理器经过数万个周期才能切换到另一个线程，而带有超线程的CPU核心每个周期都可以选择执行哪个线程的人物，这使得运算单元的空闲时间得到重复呢利用，有效提升了效率。 如果程序编写时针对多线程做了优化，那么即使仅运行这一个程序，并发也会带来性能提升。</p>
+</section>
+<section id="指令级别的并行" class="level4">
+<h4 class="anchored" data-anchor-id="指令级别的并行">指令级别的并行</h4>
+<p>现代处理器可以在一个周期内同时执行多条指令。</p>
+</section>
+<section id="单指令多数据simd的并行" class="level4">
+<h4 class="anchored" data-anchor-id="单指令多数据simd的并行">单指令、多数据(SIMD)的并行</h4>
+<p>现代处理器也可以同时对多组数据进行同样的运算，然后同时得出结果。</p>
+</section>
+</section>
+<section id="抽象的重要性" class="level3">
+<h3 class="anchored" data-anchor-id="抽象的重要性">抽象的重要性</h3>
+<p>处理器方面：指令集 操作系统方面： I/O抽象为文件、内存抽象为虚拟地址空间、程序抽象为进程等等</p>
+<p>(Finished on Friday 31, October 2025)</p>
+</section>
+</section>
 <section id="碎碎念" class="level1">
 <h1>碎碎念</h1>
 <p>今天是2025年10月31号，离我最初开始写这篇笔记似乎已经过去了整整一年。过去的一年里，我从电子信息大一新生变成了AI大二学生；我开了无数个像这篇文章一样的坑，又弃了无数个这样的坑。我无数次地迷茫、无数次地无所适从；无数次地精神崩溃、无数次地怨天尤人。在无数多的坏情绪下走到了今天。 直到最近，我终于下定决心：<del>该从AI与Sys中选一个方向去做了。我花了很多天，告诉自己AI是坑、是泡沫等等等等；但是沉下心来想，任何人都能看出这两个方向现在究竟哪个更吃香，我想的那些理由不过是想合理化自己的喜好。不过我也因此明白了，我真正喜欢的就是Sys方向，</del>我要从我去年看了几眼就放下的CSAPP开始，一点一点补起我的知识体系。 过去一年我走了很多弯路，我现在又重新上路了，我不知道这次是不是弯路，但是这次，我不想再停下来了。</p>
@@ -277,7 +335,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>情况发生了一些变化。请参照最后一段。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
