@@ -2,9 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/csapp/index.html",
       "/posts/CS61B/index.html",
       "/posts/linuxc/index.html",
-      "/posts/csapp/index.html",
       "/posts/glory1/index.html",
       "/posts/glory2/index.html"
     ]

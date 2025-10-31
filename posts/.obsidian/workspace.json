@@ -44,7 +44,7 @@
                 "currentVersion": "1.8.4"
               },
               "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.4"
+              "title": "版本说明 1.8.4"
             }
           },
           {
@@ -67,7 +67,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS61B/index.qmd",
+                "file": "csapp/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -133,8 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "c898c04aebcf2e27",
@@ -223,6 +222,10 @@
   },
   "active": "93d9bc7a6aa4c297",
   "lastOpenFiles": [
+    "csapp/index.md",
+    "linuxc/index.qmd",
+    "CS61B/index.qmd",
+    "glory1/index.md",
     "CS61B/index.html",
     "CS61B/index_files/mediabag",
     "CS61B/index_files",
@@ -231,16 +234,11 @@
     "glory2/index_files",
     "glory1/index.html",
     "glory1/index_files/mediabag",
-    "glory1/index_files",
-    "csapp/index.html",
-    "csapp/index_files/mediabag",
     "Pasted image 20250925131946.png",
-    "glory1/index.md",
     "CS61B/index.md",
     "glory2/index.md",
     "linuxc/index.md",
     "bookNote/index.md",
-    "csapp/index.md",
     "circuits/index_files/figure-html/cell-2-output-1.png",
     "cs61a/index.md",
     "cpptypes/未命名.md",
