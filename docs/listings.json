@@ -2,10 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/adult/index.html",
       "/posts/csapp2/index.html",
       "/posts/csapp1/index.html",
       "/posts/CS61B/index.html",
       "/posts/linuxc/index.html",
+      "/posts/ysyx-digital/index.html",
       "/posts/glory1/index.html",
       "/posts/glory2/index.html"
     ]

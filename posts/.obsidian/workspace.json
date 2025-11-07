@@ -13,7 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "csapp2/index.md",
+                "file": "ysyx-digital/index.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "e3361f2f16867cfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "adult/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -21,7 +35,8 @@
               "title": "index"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -165,15 +180,20 @@
       "qmd-as-md-obsidian:Toggle Quarto Preview": false
     }
   },
-  "active": "077b156086d38092",
+  "active": "e3361f2f16867cfc",
   "lastOpenFiles": [
-    "glory1/index.md",
+    "ysyx-digital/index.md",
+    "adult/index.md",
+    "adult",
+    "ysyx-digital/Pasted image 20251107210149.png",
+    "linuxc/index.qmd",
     "csapp2/index.md",
+    "Pasted image 20250925131946.png",
+    "ysyx-digital",
+    "glory1/index.md",
     "csapp1/index.md",
     "glory2/index.md",
-    "linuxc/index.qmd",
     "CS61B/index.qmd",
-    "未命名.md",
     "2025-10-31.md",
     "csapp2",
     "CS61B/index.html",
@@ -181,9 +201,6 @@
     "CS61B/index_files",
     "glory2/index.html",
     "glory2/index_files/mediabag",
-    "glory2/index_files",
-    "glory1/index.html",
-    "Pasted image 20250925131946.png",
     "CS61B/index.md",
     "linuxc/index.md",
     "bookNote/index.md",

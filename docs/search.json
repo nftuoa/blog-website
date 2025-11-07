@@ -7,6 +7,20 @@
     "text": "I don’t know what makes me real, maybe it’s the current moment, or maybe it’s you."
   },
   {
+    "objectID": "posts/ysyx-digital/index.html",
+    "href": "posts/ysyx-digital/index.html",
+    "title": "ysyx学习笔记——数字电路基础",
+    "section": "",
+    "text": "![[Pasted image 20251107210149.png]]\n后边的其实已经做了一半了，但我懒得截图了，先这样吧"
+  },
+  {
+    "objectID": "posts/ysyx-digital/index.html#译码器",
+    "href": "posts/ysyx-digital/index.html#译码器",
+    "title": "ysyx学习笔记——数字电路基础",
+    "section": "",
+    "text": "![[Pasted image 20251107210149.png]]\n后边的其实已经做了一半了，但我懒得截图了，先这样吧"
+  },
+  {
     "objectID": "posts/csapp1/index.html",
     "href": "posts/csapp1/index.html",
     "title": "《CS:APP》学习笔记(1)计算机系统巡游",
@@ -158,7 +172,7 @@
     "href": "index.html",
     "title": "Oscar Tuo’s Blog",
     "section": "",
-    "text": "《CS:APP》学习笔记(2)信息的表示与处理\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nNov 6, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《CS:APP》学习笔记(1)计算机系统巡游\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nOct 31, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\nCS61B要点速记\n\n\n\nJava\n\n\n\n\n\n\n\n\n\nSep 23, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《Linux C编程一站式学习》习题解答\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\nNo matching items"
+    "text": "Adult Suit\n\n\n\nthoughts\n\n\n\n\n\n\n\n\n\nNov 7, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《CS:APP》学习笔记(2)信息的表示与处理\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nNov 6, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《CS:APP》学习笔记(1)计算机系统巡游\n\n\n\nsystem\n\n\n\n\n\n\n\n\n\nOct 31, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\nCS61B要点速记\n\n\n\nJava\n\n\n\n\n\n\n\n\n\nSep 23, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《Linux C编程一站式学习》习题解答\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\nysyx学习笔记——数字电路基础\n\n\n\ndigital\n\nysyx\n\nlogisim\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n《荣光与梦想——美国历史纪实：1932-1972年》 序章:冰点\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\n\n\n\n\n\n\n\n新年特辑 | 翻译 《荣光与梦想——美国历史纪实：1932-1972年》第二章·“罗斯福！”\n\n\n\ntranslation\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nOscar Tuo\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/glory1/index.html",
@@ -242,13 +256,20 @@
     "href": "posts/csapp2/index.html",
     "title": "《CS:APP》学习笔记(2)信息的表示与处理",
     "section": "",
-    "text": "内存中的最小可读写单元往往不是二进制位，而是由8个二进制位组成的字节。对程序而言，内存就是一个由字节组成的数组，也就是所谓虚拟地址空间，其中每个字节都有其独一无二的编号，称为地址。\n虚拟地址空间并不只是简单地给物理内存标序号，其实现比较复杂，在后文会详述。内存地址的一个典型应用场景就是C指针：指针内存储的就是所指向的内存地址。C编译器会针对指针指向的不同数据类型生成不同的机器码；当然，真正的机器码里就不存在数据类型了，对于它而言，指针指向的数据和它自身都只是一些字节串而已。"
+    "text": "内存中的最小可读写单元往往不是二进制位，而是由8个二进制位组成的字节。对程序而言，内存就是一个由字节组成的数组，也就是所谓虚拟地址空间，其中每个字节都有其独一无二的编号，称为地址。\n虚拟地址空间并不只是简单地给物理内存标序号，其实现比较复杂，在后文会详述。内存地址的一个典型应用场景就是C指针：指针内存储的就是所指向的内存地址。C编译器会针对指针指向的不同数据类型生成不同的机器码；当然，真正的机器码里就不存在数据类型了，对于它而言，指针指向的数据和它自身都只是一些字节串而已。\n\n\n计算机内，数字以二进制形式存储，但二进制有一个问题：过于冗长了。而日常生活中常用的十进制在转换为二进制时比较麻烦，因此我们引入十六进制。 十六进制的一位可以严格对应二进制的四位，因此在十六进制和二进制之间转换很方便。"
   },
   {
     "objectID": "posts/csapp2/index.html#数据的存储",
     "href": "posts/csapp2/index.html#数据的存储",
     "title": "《CS:APP》学习笔记(2)信息的表示与处理",
     "section": "",
-    "text": "内存中的最小可读写单元往往不是二进制位，而是由8个二进制位组成的字节。对程序而言，内存就是一个由字节组成的数组，也就是所谓虚拟地址空间，其中每个字节都有其独一无二的编号，称为地址。\n虚拟地址空间并不只是简单地给物理内存标序号，其实现比较复杂，在后文会详述。内存地址的一个典型应用场景就是C指针：指针内存储的就是所指向的内存地址。C编译器会针对指针指向的不同数据类型生成不同的机器码；当然，真正的机器码里就不存在数据类型了，对于它而言，指针指向的数据和它自身都只是一些字节串而已。"
+    "text": "内存中的最小可读写单元往往不是二进制位，而是由8个二进制位组成的字节。对程序而言，内存就是一个由字节组成的数组，也就是所谓虚拟地址空间，其中每个字节都有其独一无二的编号，称为地址。\n虚拟地址空间并不只是简单地给物理内存标序号，其实现比较复杂，在后文会详述。内存地址的一个典型应用场景就是C指针：指针内存储的就是所指向的内存地址。C编译器会针对指针指向的不同数据类型生成不同的机器码；当然，真正的机器码里就不存在数据类型了，对于它而言，指针指向的数据和它自身都只是一些字节串而已。\n\n\n计算机内，数字以二进制形式存储，但二进制有一个问题：过于冗长了。而日常生活中常用的十进制在转换为二进制时比较麻烦，因此我们引入十六进制。 十六进制的一位可以严格对应二进制的四位，因此在十六进制和二进制之间转换很方便。"
+  },
+  {
+    "objectID": "posts/adult/index.html",
+    "href": "posts/adult/index.html",
+    "title": "Adult Suit",
+    "section": "",
+    "text": "今晚刷知乎，看到有人分享了李新野老师的大作： 人妻约会指南,有幸(或者不幸)拜读了一下。\n我实际上一开始是波澜不惊的。毕竟作为在三线城市长大、在公众号、微博、贴吧、小红书等平台博览群贴的杂食动物，无论是在现实中听说还是在网上看到的，像文中这样的男男女女我都实在见了不少。\n真正好死不死的是，我手贱看了他博客十几年前的博文。就是这篇，那年他16岁，那年他真的很爱她，那个她与开头那个pdf里的她是同一个人。\n我第一次惊叹于社会给一个人带来了如此巨大的影响。当然，我说的不是女主——她从高中到与李老师再次相逢时，一直出色地保持了惊人的拜金的特质。从这个角度来看，她并没有被沧海桑田所改变。\n让我惊异的只是作者的改变。我实在是难以接受一个当年感情如此热烈、情感如此单纯的人，会在之后变成一个嫖客、变成一个以用金钱打击别人人格并且以此为荣的人。\n我的父母一直不反对我在学生时代谈恋爱，谈到理由时他们总会说是因为学生时代的感情最纯洁,我一直觉得自己还是比较理解这句话的；但是如果他们的意思是成年人的感情就像李新野老师的现状这样的话，我必须承认自己太naive、并且表示有些接受不能了。\n去年7月我成年的那天，我在微博写了很长一段话（后来删了）。大体的意思就是我感觉自己还没有能力承担成年人的身份带来的责任。然而现在我觉得，相比于承担成年人的责任，可能眼看自己一步一步变成自己曾经最讨厌的大人，还是更可怕一些。\n(这篇不发公众号主要是因为话题有点太敏感了)"
   }
 ]
